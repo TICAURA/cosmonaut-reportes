@@ -22,6 +22,7 @@ public class CargaPTUController {
     @Inject
     private CargaPTUService cargaPTUService;
 
+
     @Operation(summary = "${cosmonaut.controller.cargaMasivaPTU.reportes.resumen}",
             description = "${cosmonaut.controller.cargaMasivaPTU.reportes.descripcion}",
             operationId = "cargaMasivaPTU.reportes")

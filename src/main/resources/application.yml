@@ -131,7 +131,3 @@ servicio:
       eliminar:
         path: "/archivos/delete/"
 
-
-
-
-

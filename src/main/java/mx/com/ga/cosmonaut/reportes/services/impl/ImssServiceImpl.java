@@ -112,10 +112,6 @@ public class ImssServiceImpl implements ImssService {
         }
     }
 
-    private String convierteMonto(Double monto){
-        return  String.format("%,.2f", monto);
-    }
-
     private ByteArrayOutputStream llenarDatosVariabilidad(List<String> listaTitulos, List<PromedioVariables> promedioVariables) throws ServiceException{
         try(ByteArrayOutputStream outFile = new ByteArrayOutputStream();
             XSSFWorkbook workbook = new XSSFWorkbook()) {
@@ -161,16 +157,16 @@ public class ImssServiceImpl implements ImssService {
                         headerfila.set(hojaActual.createRow(j.getAndIncrement()));
                          generarColumnas(headerfila,0,c.getNumEmpleado());
                         generarColumnas(headerfila,1,String.format("%1$s %2$s %3$s",c.getNombre(),c.getApellidoPat(),c.getApellidoMat() == null ? "":c.getApellidoMat()));
-                        generarColumnas(headerfila,2,convierteMonto(Double.valueOf(redondeoCantidad(String.valueOf(c.getSueldoBrutoMensual()),2))));
-                        generarColumnas(headerfila,3,convierteMonto(Double.valueOf(redondeoCantidad(String.valueOf(c.getSalarioDiario()),2))));
+                        generarColumnas(headerfila,2,redondeoCantidad(String.valueOf(c.getSueldoBrutoMensual()),2));
+                        generarColumnas(headerfila,3,redondeoCantidad(String.valueOf(c.getSalarioDiario()),2));
                         generarColumnas(headerfila,4,redondeoCantidad(String.valueOf(c.getFactorIntegracion()),4));
                         generarColumnas(headerfila,5,String.valueOf(c.getDiasBimestre()));
                         generarColumnas(headerfila,6,String.valueOf(c.getDiasLaboradosBimestre()));
-                        generarColumnas(headerfila,7,convierteMonto(Double.valueOf(redondeoCantidad(String.valueOf(c.getIngresosVariables()),2))));
-                        generarColumnas(headerfila,8,convierteMonto(Double.valueOf(redondeoCantidad(String.valueOf(c.getPromedioVariable()),2))));
-                        generarColumnas(headerfila,9,convierteMonto(Double.valueOf(redondeoCantidad(String.valueOf(c.getSbcAnterior()),2))));
-                        generarColumnas(headerfila,10,convierteMonto(Double.valueOf(redondeoCantidad(String.valueOf(c.getSbcActual()),2))));
-                        generarColumnas(headerfila,11,convierteMonto(Double.valueOf(redondeoCantidad(String.valueOf(c.getDiferencia()),2))));
+                        generarColumnas(headerfila,7,redondeoCantidad(String.valueOf(c.getIngresosVariables()),2));
+                        generarColumnas(headerfila,8,redondeoCantidad(String.valueOf(c.getPromedioVariable()),2));
+                        generarColumnas(headerfila,9,redondeoCantidad(String.valueOf(c.getSbcAnterior()),2));
+                        generarColumnas(headerfila,10,redondeoCantidad(String.valueOf(c.getSbcActual()),2));
+                        generarColumnas(headerfila,11,redondeoCantidad(String.valueOf(c.getDiferencia()),2));
                         });
 
             headerfila.set(hojaActual.createRow(j.get()));

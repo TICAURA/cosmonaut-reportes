@@ -2,10 +2,8 @@ package mx.com.ga.cosmonaut.reportes.services.impl;
 
 import mx.com.ga.cosmonaut.common.dto.RespuestaGenerica;
 import mx.com.ga.cosmonaut.common.entity.calculo.NcrNominaXperiodo;
-import mx.com.ga.cosmonaut.common.entity.cliente.NclArea;
 import mx.com.ga.cosmonaut.common.exception.ServiceException;
 import mx.com.ga.cosmonaut.common.repository.calculo.NcrNominaXperiodoRepository;
-import mx.com.ga.cosmonaut.common.repository.cliente.NclAreaRepository;
 import mx.com.ga.cosmonaut.common.repository.colaborador.NcoContratoColaboradorRepository;
 import mx.com.ga.cosmonaut.common.repository.nativo.CentroCostoCienteRepository;
 import mx.com.ga.cosmonaut.common.util.Constantes;
@@ -14,6 +12,7 @@ import mx.com.ga.cosmonaut.orquestador.repository.ReportesRepository;
 import mx.com.ga.cosmonaut.orquestador.service.NominaOrdinariaLibService;
 import mx.com.ga.cosmonaut.orquestador.service.NominasHistoricasLibService;
 import mx.com.ga.cosmonaut.orquestador.service.ReporteNominaService;
+import mx.com.ga.cosmonaut.reportes.dto.respuesta.descargarecibos.Deduccion;
 import mx.com.ga.cosmonaut.reportes.dto.respuesta.reportenomina.ReporteNominaImpl;
 import mx.com.ga.cosmonaut.reportes.model.ComprobanteFiscalModel;
 import mx.com.ga.cosmonaut.reportes.services.ConexionClienteService;
@@ -37,8 +36,6 @@ import javax.inject.Singleton;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.text.DecimalFormat;
-import java.text.DecimalFormatSymbols;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -57,9 +54,6 @@ public class NominaServiceImpl  implements NominaService {
 
     @Inject
     private ConexionClienteService conexionClienteService;
-
-    @Inject
-    private NclAreaRepository nclAreaRepository;
 
     @Inject
     private NcoContratoColaboradorRepository ncoContratoColaboradorRepository;
@@ -92,7 +86,7 @@ public class NominaServiceImpl  implements NominaService {
             throw new ServiceException(Constantes.ERROR_CLASE + this.getClass().getSimpleName()
                     + Constantes.ERROR_METODO +" crearArchivoRFC " + Constantes.ERROR_EXCEPCION, ex);
         }
-        return respuestaGenerica;
+     return respuestaGenerica;
     }
 
     @Override
@@ -119,7 +113,7 @@ public class NominaServiceImpl  implements NominaService {
 
             if (Boolean.TRUE.equals(
                     crearArchivo(reporte, configuration, byteArrayOutputStream, RUTA_ARCHIVO_DISPERSIONNOMINA))
-                    && Boolean.TRUE.equals(
+            && Boolean.TRUE.equals(
                     escribirArchivoLayoutDispersionNomina(comprobanteFiscalModel.getNominaPeriodoId()))) {
                 respuestaGenerica.setDatos(convertiraBase64(RUTA_ARCHIVO_DISPERSIONNOMINA));
                 respuestaGenerica.setResultado(mx.com.ga.cosmonaut.common.util.Constantes.RESULTADO_EXITO);
@@ -145,7 +139,7 @@ public class NominaServiceImpl  implements NominaService {
                 "Prest. Esp. (Mayor 3 UMAS)", "Prestaciones en dinero", "Invalidéz y vida", "Riesgos de trabajo",
                 "Guarderias", "Retiro", "Cesantia, edad avanzada y vejéz", "Gastos médicos para pens.","INFONAVIT",
                 "Provisión prima vacacional", "Provisión gratificación anual", "ISN Ciudad de México","Total provisiones"
-        );
+                );
         try(FileOutputStream outFile = new FileOutputStream(
                 new File(RUTA_CARPETA + RUTA_ARCHIVO_NOMINAEXTRAORDINARIA));
             XSSFWorkbook workbook = new XSSFWorkbook()) {
@@ -202,8 +196,8 @@ public class NominaServiceImpl  implements NominaService {
             List<NominaPeriodoHistoricas> nominas = this.nominasHistoricasLibLibService.listaEmpleadosxNomina(comprobanteFiscalModel.getNominaPeriodoId());
 
             if(!nominas.isEmpty()){
-                ByteArrayOutputStream salida =   creacionLayoutDinamico(nominas.get(0));
-                String base64 = Base64.getEncoder().encodeToString(salida.toByteArray());
+               ByteArrayOutputStream salida =   creacionLayoutDinamico(nominas.get(0));
+               String base64 = Base64.getEncoder().encodeToString(salida.toByteArray());
                 respuesta.setResultado(Constantes.RESULTADO_EXITO);
                 respuesta.setMensaje(Constantes.EXITO);
                 respuesta.setDatos(base64);
@@ -264,11 +258,11 @@ public class NominaServiceImpl  implements NominaService {
 
 
     private void escribirDatosDispersionNomina(List<NominaDispersion> empleadoADispersar)
-            throws ServiceException {
+    throws ServiceException {
 
         try (FileInputStream file = new FileInputStream(new File(RUTA_CARPETA +
                 RUTA_ARCHIVO_DISPERSIONNOMINA));
-             XSSFWorkbook workbook = new XSSFWorkbook(file);
+                XSSFWorkbook workbook = new XSSFWorkbook(file);
              FileOutputStream outFile = new FileOutputStream(
                      new File(RUTA_CARPETA + RUTA_ARCHIVO_DISPERSIONNOMINA))) {
 
@@ -335,14 +329,15 @@ public class NominaServiceImpl  implements NominaService {
 
             headerfila.set(hojaActual.createRow(3));
             headerfila.get().createCell(0)
-                    .setCellValue("De " + new SimpleDateFormat("dd-MMM-yyyy", new Locale("es", "ES")).format(reporteNomina.getDel().getTime()) +
-                            " hasta " + new SimpleDateFormat("dd-MMM-yyyy", new Locale("es", "ES")).format(reporteNomina.getAl().getTime()));
-            System.out.println("De " + new SimpleDateFormat("dd-MMM-yyyy", new Locale("es", "ES")).format(reporteNomina.getDel().getTime()) +
-                    " hasta " + new SimpleDateFormat("dd-MMM-yyyy", new Locale("es", "ES")).format(reporteNomina.getAl().getTime()));
+                    .setCellValue("De " + new SimpleDateFormat("yyyy-MMM-dd").format(reporteNomina.getDel().getTime()) +
+                            " hasta " + new SimpleDateFormat("yyyy-MMM-dd").format(reporteNomina.getAl().getTime()));
+            System.out.println("De " + new SimpleDateFormat("yyyy-MMM-dd").format(reporteNomina.getDel().getTime()) +
+                    " hasta " + new SimpleDateFormat("yyyy-MMM-dd").format(reporteNomina.getAl().getTime()));
             headerfilaTitulos.set(hojaActual.createRow(5));
-            List<String> conceptoPercepcion = new ArrayList<>();
-            List<String> conceptoDeduccion = new ArrayList<>();
-            List<String> conceptoProvision = new ArrayList<>();
+                List<String> conceptoPercepcion = new ArrayList<>();
+                List<String> conceptoDeduccion = new ArrayList<>();
+                List<String> conceptoProvision = new ArrayList<>();
+
             reporteNomina.getEmpleados().stream().forEach(empleado -> {
                 if(!empleado.getListaPercepciones().isEmpty()){
                     empleado.getListaPercepciones().stream().forEach(percepcion ->{
@@ -363,13 +358,13 @@ public class NominaServiceImpl  implements NominaService {
             });
 
 
-            List<String> finalConceptoPercepcion = conceptoPercepcion.stream().distinct().collect(Collectors.toList());
-            List<String> finalConceptoDeduccion = conceptoDeduccion.stream().distinct().collect(Collectors.toList());
-            List<String> finalConceptoProvision = conceptoProvision.stream().distinct().collect(Collectors.toList());
+                List<String> finalConceptoPercepcion = conceptoPercepcion.stream().distinct().collect(Collectors.toList());
+                List<String> finalConceptoDeduccion = conceptoDeduccion.stream().distinct().collect(Collectors.toList());
+                List<String> finalConceptoProvision = conceptoProvision.stream().distinct().collect(Collectors.toList());
 
 
 
-            List<String> titulos = this.creacionTitulos(finalConceptoPercepcion,finalConceptoDeduccion,finalConceptoProvision);
+                List<String> titulos = this.creacionTitulos(finalConceptoPercepcion,finalConceptoDeduccion,finalConceptoProvision);
             for(int x = 0; x < titulos.size(); x++){
                 XSSFCell cell = headerfilaTitulos.get().createCell(x);
                 cell.setCellValue(titulos.get(x).replace("-POLITICA","").replace("-PERSONA",""));
@@ -403,9 +398,9 @@ public class NominaServiceImpl  implements NominaService {
 
 
 
-            workbook.write(outFile);
+        workbook.write(outFile);
 
-            return outFile;
+        return outFile;
         } catch (Exception ex) {
             throw new ServiceException(mx.com.ga.cosmonaut.common.util.Constantes.ERROR_CLASE +
                     this.getClass().getSimpleName()
@@ -420,7 +415,6 @@ public class NominaServiceImpl  implements NominaService {
         titulos.add("Nombre");
         titulos.add("Primero apellido");
         titulos.add("Segundo apellido");
-        titulos.add("Área");
         titulos.add("Puesto");
         titulos.add("Dias laborados");
         titulos.add("Dias ausencia");
@@ -447,31 +441,23 @@ public class NominaServiceImpl  implements NominaService {
         titulos.add("Total Neto");
         return titulos;
     }
-
-    private String convierteMonto(Double monto){
-        return  String.format("%,.2f", monto);
-    }
-
     public List<Object> getValores(ReporteReciboXEmpleado empleado, List<String> percepciones, List<String> deducciones, List<String> patronales){
-        //preaparamos el formato a mostrar en los numeros
-        //DecimalFormat df = new DecimalFormat("#,###.##",new DecimalFormatSymbols(Locale.US));
+
         List<Object> respuesta = new ArrayList<>();
         respuesta.add(empleado.getNumEmpleado());
         respuesta.add(empleado.getNombre());
         respuesta.add(empleado.getApellidoPat());
         respuesta.add(empleado.getApellidoMat());
-        Optional<NclArea> area=  nclAreaRepository.findByAreaId(empleado.getAreaId());
-        respuesta.add(area.get().getDescripcion());
         respuesta.add(empleado.getPuesto());
         respuesta.add(empleado.getDiasLaborados());
         respuesta.add(empleado.getDiasAusencia());
         respuesta.add(empleado.getDiasIncapacidad());
-        respuesta.add(new SimpleDateFormat("dd-MMM-yyyy", new Locale("es", "ES")).format(empleado.getFechaContrato()));
-        respuesta.add(new SimpleDateFormat("dd-MMM-yyyy", new Locale("es", "ES")).format(empleado.getFechaAntiguedad()));
+        respuesta.add(new SimpleDateFormat("yyyy-MMM-dd").format(empleado.getFechaContrato()));
+        respuesta.add(new SimpleDateFormat("yyyy-MMM-dd").format(empleado.getFechaAntiguedad()));
         if(empleado.getFechaPagoTimbrado()==null)
             respuesta.add("");
         else
-            respuesta.add(new SimpleDateFormat("dd-MMM-yyyy", new Locale("es", "ES")).format(empleado.getFechaPagoTimbrado()));
+            respuesta.add(new SimpleDateFormat("yyyy-MMM-dd").format(empleado.getFechaPagoTimbrado()));
         respuesta.add(empleado.getMetodoPago());
         respuesta.add(empleado.getBanco());
         respuesta.add(empleado.getClabe());
@@ -486,38 +472,37 @@ public class NominaServiceImpl  implements NominaService {
             }
             respuesta.add(valor);
         }
-
-        respuesta.add(convierteMonto((empleado.getProvisionImssPatronal()!=null) ? empleado.getProvisionImssPatronal(): Double.parseDouble("0.0")));
-        respuesta.add(convierteMonto((empleado.getProvisionIsn()!=null) ? empleado.getProvisionIsn(): Double.parseDouble("0.0")));
-        respuesta.add(convierteMonto((empleado.getProvisionAguinaldo()!=null) ? empleado.getProvisionAguinaldo(): Double.parseDouble("0.0")));
-        respuesta.add(convierteMonto((empleado.getProvisionVacaciones()!=null) ? empleado.getProvisionVacaciones(): Double.parseDouble("0.0")));
-        respuesta.add(convierteMonto((empleado.getProvisionPrimaVacacional()!=null) ? empleado.getProvisionPrimaVacacional(): Double.parseDouble("0.0")));
-        respuesta.add(convierteMonto((empleado.getSalarioDiario()!=null) ? empleado.getSalarioDiario(): Double.parseDouble("0.0")));
-        respuesta.add(convierteMonto((empleado.getSueldoBrutoMensual()!=null) ? empleado.getSueldoBrutoMensual(): Double.parseDouble("0.0")));
+        respuesta.add(empleado.getProvisionImssPatronal());
+        respuesta.add(empleado.getProvisionIsn());
+        respuesta.add(empleado.getProvisionAguinaldo());
+        respuesta.add(empleado.getProvisionVacaciones());
+        respuesta.add(empleado.getProvisionPrimaVacacional());
+        respuesta.add(empleado.getSalarioDiario());
+        respuesta.add(empleado.getSueldoBrutoMensual());
         for(String item : percepciones){
             String valor = "-";
             for(Percepciones percepcion : empleado.getListaPercepciones()){
                 if(percepcion.getConceptoSat().equalsIgnoreCase(item)){
-                    valor = String.valueOf(convierteMonto(Double.parseDouble(percepcion.getMontoTotal())));
+                    valor = String.valueOf(percepcion.getMontoTotal());
                     break;
                 }
             }
             respuesta.add(valor);
         }
 
-        respuesta.add(convierteMonto(empleado.getTotalPercepciones()));
+        respuesta.add(empleado.getTotalPercepciones());
         for(String item : deducciones){
             String valor = "-";
             for(Deducciones deduccion : empleado.getListaDeducciones()){
                 if(deduccion.getConceptoSat().equalsIgnoreCase(item)){
-                    valor = String.valueOf(convierteMonto(Double.parseDouble(deduccion.getMontoCuota())));
+                    valor = String.valueOf(deduccion.getMontoCuota());
                     break;
                 }
             }
             respuesta.add(valor);
         }
-        respuesta.add(convierteMonto(empleado.getTotalDeducciones()));
-        respuesta.add(convierteMonto(empleado.getTotalNeto()));
+        respuesta.add(empleado.getTotalDeducciones());
+        respuesta.add(empleado.getTotalNeto());
 
         return respuesta;
 

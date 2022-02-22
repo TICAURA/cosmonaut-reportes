@@ -1,10 +1,1 @@
 # cosmonaut-reportes
-
-
-
-
-
-#hola
-
-
-#jojo

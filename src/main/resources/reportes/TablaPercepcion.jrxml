@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.18.1.final using JasperReports Library version 6.18.1-9d75d1969e774d4f179fb3be8401e98a0e6d1611  -->
+<!-- Created with Jaspersoft Studio version 6.17.0.final using JasperReports Library version 6.17.0-6d93193241dd8cc42629e188b94f9e0bc5722efd  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="InformacionBasica" pageWidth="190" pageHeight="842" columnWidth="190" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="0181bea4-bbba-4105-b509-600bb91cdd62">
 	<property name="com.jaspersoft.studio.unit." value="pixel"/>
 	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
@@ -35,7 +35,7 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$F{concepto}]]></textFieldExpression>
 			</textField>
-			<textField textAdjust="StretchHeight" pattern="#,##0.00#;#,##0.00#-">
+			<textField textAdjust="StretchHeight">
 				<reportElement style="estiloFilaColorAlternativo" stretchType="RelativeToTallestObject" mode="Opaque" x="120" y="0" width="70" height="15" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" forecolor="#7C7C7C" uuid="01205d1d-1040-49ce-b7d5-389e34749989">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="126ef570-b87b-459c-a91d-3c92a79d9fe8"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
@@ -45,7 +45,7 @@
 					<font size="8"/>
 					<paragraph rightIndent="5"/>
 				</textElement>
-				<textFieldExpression><![CDATA[Double.valueOf($F{montoTotal})]]></textFieldExpression>
+				<textFieldExpression><![CDATA["$ " + $F{montoTotal}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

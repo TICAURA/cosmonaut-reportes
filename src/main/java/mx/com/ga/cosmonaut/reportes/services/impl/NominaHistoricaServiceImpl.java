@@ -305,7 +305,6 @@ public class NominaHistoricaServiceImpl implements NominaHistoricaService {
         }
     }
 
-
     private ByteArrayOutputStream creacionDinamicaAcumuladoNominaHistorica(List<EmpleadoXNominaAcumulados> listaEmpleados,AcumuladoHistorica acumuladoHistorica) throws ServiceException {
 
         try(ByteArrayOutputStream outFile = new ByteArrayOutputStream();
@@ -394,7 +393,7 @@ public class NominaHistoricaServiceImpl implements NominaHistoricaService {
 
             List<String> valoresTotales = new ArrayList<String>();
             titulos.stream().forEach(c ->{
-                valoresTotales.add((referencia.get(c)));
+                valoresTotales.add(referencia.get(c));
             });
 
             valoresTotales.stream().forEach(c -> {
@@ -415,7 +414,6 @@ public class NominaHistoricaServiceImpl implements NominaHistoricaService {
                     + Constantes.ERROR_METODO +" creacionDinamicaAcumuladoNominaHistorica " + Constantes.ERROR_EXCEPCION, ex);
         }
     }
-
 
     private List<String> creacionTitulos(List<String> percepciones,List<String> deducciones,List<String> patronal){
         List<String> titulos = new ArrayList<String>();
@@ -460,50 +458,50 @@ public class NominaHistoricaServiceImpl implements NominaHistoricaService {
         respuesta.add(empleado.getRfc());
         respuesta.add(empleado.getCurp());
         respuesta.add(empleado.getNss());
-        respuesta.add(convierteMonto(empleado.getSueldoBrutoMensual()));
+        respuesta.add(empleado.getSueldoBrutoMensual());
         referencia.replace("Sueldo bruto",valor(referencia.get("Sueldo bruto"),empleado.getSueldoBrutoMensual()));
-        respuesta.add(convierteMonto(empleado.getSbc()));
+        respuesta.add(empleado.getSbc());
         referencia.replace("SBC",valor(referencia.get("SBC"),empleado.getSbc()));
-        respuesta.add(convierteMonto(empleado.getProvisionPrimaVacacional()));
+        respuesta.add(empleado.getProvisionPrimaVacacional());
         referencia.replace("Provisión prima vacacional",valor(referencia.get("Provisión prima vacacional"),empleado.getProvisionPrimaVacacional()));
-        respuesta.add(convierteMonto(empleado.getProvisionVacaciones()));
+        respuesta.add(empleado.getProvisionVacaciones());
         referencia.replace("Provisión vacaciones",valor(referencia.get("Provisión vacaciones"),empleado.getProvisionVacaciones()));
-        respuesta.add(convierteMonto(empleado.getProvisionAguinaldo()));
+        respuesta.add(empleado.getProvisionAguinaldo());
         referencia.replace("Provisión aguinaldo",valor(referencia.get("Provisión aguinaldo"),empleado.getProvisionAguinaldo()));
-        respuesta.add(convierteMonto(empleado.getProvisionIsn()));
+        respuesta.add(empleado.getProvisionIsn());
         referencia.replace("Provisión ISN",valor(referencia.get("Provisión ISN"),empleado.getProvisionIsn()));
         for(String item : patronales){
             String valor = "-";
             for(PercepcionesDeduccionesAcumulados patronal : empleado.getPatronal()){
                 if(patronal.getConceptoSat().equalsIgnoreCase(item)){
-                    valor = String.valueOf(convierteMonto(patronal.getImporte()));
+                    valor = String.valueOf(patronal.getImporte());
                     referencia.replace(item,valor(referencia.get(item),patronal.getImporte()));
                     break;
                 }
             }
             respuesta.add(valor);
         }
-        respuesta.add(convierteMonto(empleado.getProvisionImssPatronal()));
+        respuesta.add(empleado.getProvisionImssPatronal());
         referencia.replace("Total IMSS Patronal",valor(referencia.get("Total IMSS Patronal"),empleado.getProvisionImssPatronal()));
 
        for(String item : percepciones){
             String valor = "-";
             for(PercepcionesDeduccionesAcumulados percepcion : empleado.getPercepciones()){
                 if(percepcion.getConceptoSat().equalsIgnoreCase(item)){
-                    valor = String.valueOf(convierteMonto(percepcion.getImporte()));
+                    valor = String.valueOf(percepcion.getImporte());
                     referencia.replace(item,valor(referencia.get(item),percepcion.getImporte()));
                     break;
                 }
             }
             respuesta.add(valor);
         }
-        respuesta.add(convierteMonto(empleado.getTotalPercepciones()));
+        respuesta.add(empleado.getTotalPercepciones());
         referencia.replace("Total percepciones",valor(referencia.get("Total percepciones"),empleado.getTotalPercepciones()));
          for(String item : deducciones){
             String valor = "-";
             for(PercepcionesDeduccionesAcumulados deduccion : empleado.getDeducciones()){
                 if(deduccion.getConceptoSat().equalsIgnoreCase(item)){
-                    valor = String.valueOf(convierteMonto(deduccion.getImporte()));
+                    valor = String.valueOf(deduccion.getImporte());
                     referencia.replace(item,valor(referencia.get(item),deduccion.getImporte()));
                     break;
                 }
@@ -511,9 +509,9 @@ public class NominaHistoricaServiceImpl implements NominaHistoricaService {
             respuesta.add(valor);
         }
 
-        respuesta.add(convierteMonto(empleado.getTotalDeducciones()));
+        respuesta.add(empleado.getTotalDeducciones());
         referencia.replace("Total deducciones",valor(referencia.get("Total deducciones"),empleado.getTotalDeducciones()));
-        respuesta.add(convierteMonto(empleado.getTotalNeto()));
+        respuesta.add(empleado.getTotalNeto());
         referencia.replace("Total neto",valor(referencia.get("Total neto"),empleado.getTotalNeto()));
         return respuesta;
 
@@ -530,9 +528,9 @@ public class NominaHistoricaServiceImpl implements NominaHistoricaService {
             parametros.put("pPeriodo","Periodo :  "+String.format("%1$s %2$s",meses[acumuladoConcepto.getMes()-1],acumuladoConcepto.getAnio()));
             parametros.put("pRFC",rnh.getRfc());
             parametros.put("pRegistroPatronal",rnh.getRegistroPatronalImss());
-            parametros.put("pNetoApagarEfectivo","" + convierteMonto(rnh.getNetoApagarEfectivo()));
-            parametros.put("pNetoApagarEspecie","" + convierteMonto(rnh.getNetoApagarEspecie()));
-            parametros.put("pNetoApagar","" + convierteMonto(Double.valueOf(UtileriasReporte.redondeoCantidad(String.valueOf((sumaPercepciones-sumaDeducciones)),2))));
+            parametros.put("pNetoApagarEfectivo","$" + rnh.getNetoApagarEfectivo());
+            parametros.put("pNetoApagarEspecie","$" + rnh.getNetoApagarEspecie());
+            parametros.put("pNetoApagar","$" + UtileriasReporte.redondeoCantidad(String.valueOf((sumaPercepciones-sumaDeducciones)),2));
             return parametros;
         } catch (Exception ex) {
             throw new ServiceException(Constantes.ERROR_CLASE + this.getClass().getSimpleName()
@@ -543,9 +541,9 @@ public class NominaHistoricaServiceImpl implements NominaHistoricaService {
     private HashMap<String, Object> obtenerDatosRayaNomina(NominaPeriodoHistoricas reporteRaya) throws ServiceException {
         try {
             HashMap<String, Object> parametros = new HashMap<>();
-            parametros.put("pFechaListaRayaAl",(new SimpleDateFormat("dd-MMM-yyyy").format(reporteRaya.getAl().getTime())));
-            parametros.put("pFechaListaRayaDel",(new SimpleDateFormat("dd-MMM-yyyy").format(reporteRaya.getDel().getTime())));
-            SimpleDateFormat format1 = new SimpleDateFormat("dd-MMM-yyyy");
+            parametros.put("pFechaListaRayaAl",(new SimpleDateFormat("yyyy-MM-dd").format(reporteRaya.getAl().getTime())));
+            parametros.put("pFechaListaRayaDel",(new SimpleDateFormat("yyyy-MM-dd").format(reporteRaya.getDel().getTime())));
+            SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
             format1.setTimeZone(TimeZone.getTimeZone("America/Mexico_City"));
             SimpleDateFormat format2 = new SimpleDateFormat("hh:mm");
             format2.setTimeZone(TimeZone.getTimeZone("America/Mexico_City"));
@@ -594,9 +592,7 @@ public class NominaHistoricaServiceImpl implements NominaHistoricaService {
                     + Constantes.ERROR_METODO +" consultaServicio " + Constantes.ERROR_EXCEPCION, ex);
         }
     }
-    private String convierteMonto(Double monto){
-        return  String.format("%,.2f", monto);
-    }
+
     private ByteArrayOutputStream crearArchivoExcelPolizaContable(ReportePolizaContable polizaContable) throws ServiceException{
         try (XSSFWorkbook workbook = new XSSFWorkbook();
              ByteArrayOutputStream outFile = new ByteArrayOutputStream()){
@@ -619,7 +615,6 @@ public class NominaHistoricaServiceImpl implements NominaHistoricaService {
                     polizaContable.getNombreCliente());
             celda.setCellStyle(estilos);
 
-
             unirCeldas(hojaActual,1,1,0,3);
             /** nombre nomina*/
             fila.set(hojaActual.createRow(1));
@@ -628,20 +623,13 @@ public class NominaHistoricaServiceImpl implements NominaHistoricaService {
                     polizaContable.getNombreNomina());
             celda.setCellStyle(estilos);
 
-            SimpleDateFormat parseador = new SimpleDateFormat("yy-MM-dd");
-            // el que formatea
-            SimpleDateFormat formateador = new SimpleDateFormat("dd-MMM-yyyy");
-
-            Date date = parseador.parse("31-03-2016");
-
-
             unirCeldas(hojaActual,2,2,0,3);
             /** nombre nomina*/
             fila.set(hojaActual.createRow(2));
             celda = fila.get().createCell(0);
             celda.setCellValue("Periodo : De " +
-                    formateador.format(parseador.parse(String.valueOf(polizaContable.getFechaInicio()))) + " hasta " +
-                    formateador.format(parseador.parse((String.valueOf(polizaContable.getFechaFin())))));
+                    polizaContable.getFechaInicio() + " hasta " +
+                    polizaContable.getFechaFin());
             celda.setCellStyle(estilos);
 
 
@@ -682,7 +670,7 @@ public class NominaHistoricaServiceImpl implements NominaHistoricaService {
                     .setCellValue(validaContenido("NET01"));
             fila.get().createCell(1).setCellValue("Neto");
             celda  = fila.get().createCell(3);
-            celda.setCellValue("" + convierteMonto(Double.valueOf(UtileriasReporte.redondeoCantidad(String.valueOf(sumaNeto),2))));
+            celda.setCellValue("$" + UtileriasReporte.redondeoCantidad(String.valueOf(sumaNeto),2));
             celda.setCellStyle(estilo);
             fila.get().createCell(2)
                     .setCellValue("" );
@@ -693,7 +681,7 @@ public class NominaHistoricaServiceImpl implements NominaHistoricaService {
             crearCeldaBordeEspecial(0,workbook,fila,"");
             crearCeldaBordeEspecial(1,workbook,fila,"SUB TOTAL");
             crearCeldaBordeEspecial(2,workbook,fila,"");
-            crearCeldaBordeEspecial(3,workbook,fila,"" + convierteMonto(Precision.round(sumaNeto,2)));
+            crearCeldaBordeEspecial(3,workbook,fila,"$" + Precision.round(sumaNeto,2));
 
 
 
@@ -702,8 +690,8 @@ public class NominaHistoricaServiceImpl implements NominaHistoricaService {
             fila.set(hojaActual.createRow(numFila.getAndIncrement()));
             crearCeldaBordeEspecial(0,workbook,fila,"");
             crearCeldaBordeEspecial(1,workbook,fila,"GRAN TOTAL");
-            crearCeldaBordeEspecial(2,workbook,fila,"" + convierteMonto(Precision.round((sumaPercepciones.get()+sumaProvisiones),2)));
-            crearCeldaBordeEspecial(3,workbook,fila,"" + convierteMonto(Precision.round((sumaDeducciones.get()+sumaProvisiones+sumaNeto),2)));
+            crearCeldaBordeEspecial(2,workbook,fila,"$" + Precision.round((sumaPercepciones.get()+sumaProvisiones),2));
+            crearCeldaBordeEspecial(3,workbook,fila,"$" + Precision.round((sumaDeducciones.get()+sumaProvisiones+sumaNeto),2));
 
             workbook.write(outFile);
             return outFile;
@@ -745,7 +733,7 @@ public class NominaHistoricaServiceImpl implements NominaHistoricaService {
                             .setCellValue(validaContenido(c.getCuentaContable()));
                     fila.get().createCell(1).setCellValue(validaContenido(c.getConceptoSat()));
                     celda = fila.get().createCell(2);
-                    celda.setCellValue(convierteMonto(Double.valueOf(validaContenido(c.getImporte()))));
+                    celda.setCellValue("$" + validaContenido(c.getImporte()));
                     celda.setCellStyle(estilo);
                     fila.get().createCell(3)
                             .setCellValue("" );
@@ -759,7 +747,7 @@ public class NominaHistoricaServiceImpl implements NominaHistoricaService {
             fila.set(hojaActual.createRow(numFila.getAndIncrement()));
             crearCeldaBordeEspecial(0,workbook,fila,"");
             crearCeldaBordeEspecial(1,workbook,fila,"SUB TOTAL");
-            crearCeldaBordeEspecial(2,workbook,fila,"" + convierteMonto(Precision.round(suma.get(),2)));
+            crearCeldaBordeEspecial(2,workbook,fila,"$" + Precision.round(suma.get(),2));
             crearCeldaBordeEspecial(3,workbook,fila,"");
 
             //Provisiones
@@ -770,7 +758,7 @@ public class NominaHistoricaServiceImpl implements NominaHistoricaService {
             fila.get().createCell(1)
                     .setCellValue(validaContenido("Impuesto sobre nómina"));
             celda = fila.get().createCell(2);
-            celda.setCellValue(convierteMonto(Double.valueOf(ap.getProvisionIsn().toString())));
+            celda.setCellValue("$".concat(ap.getProvisionIsn().toString()));
             celda.setCellStyle(estilo);
 
             fila.set(hojaActual.createRow(numFila.getAndIncrement()));
@@ -779,7 +767,7 @@ public class NominaHistoricaServiceImpl implements NominaHistoricaService {
             fila.get().createCell(1)
                     .setCellValue(validaContenido("Provisión  de Vacaciones"));
             celda =fila.get().createCell(2);
-                    celda.setCellValue(convierteMonto(Double.valueOf(ap.getProvisionVacaciones().toString())));
+                    celda.setCellValue("$".concat(ap.getProvisionVacaciones().toString()));
                     celda.setCellStyle(estilo);
 
             fila.set(hojaActual.createRow(numFila.getAndIncrement()));
@@ -788,7 +776,7 @@ public class NominaHistoricaServiceImpl implements NominaHistoricaService {
             fila.get().createCell(1)
                     .setCellValue(validaContenido("IMSS Patronal"));
             celda = fila.get().createCell(2);
-                    celda.setCellValue(convierteMonto(Double.valueOf(ap.getProvisionImss().toString())));
+                    celda.setCellValue("$".concat(ap.getProvisionImss().toString()));
                     celda.setCellStyle(estilo);
 
             fila.set(hojaActual.createRow(numFila.getAndIncrement()));
@@ -797,7 +785,7 @@ public class NominaHistoricaServiceImpl implements NominaHistoricaService {
             fila.get().createCell(1)
                     .setCellValue(validaContenido("Provisión de Prima Vacacional"));
             celda = fila.get().createCell(2);
-                    celda.setCellValue(convierteMonto(Double.valueOf(ap.getProvisionPrimaVacacional().toString())));
+                    celda.setCellValue("$".concat(ap.getProvisionPrimaVacacional().toString()));
                     celda.setCellStyle(estilo);
 
             fila.set(hojaActual.createRow(numFila.getAndIncrement()));
@@ -806,13 +794,13 @@ public class NominaHistoricaServiceImpl implements NominaHistoricaService {
             fila.get().createCell(1)
                     .setCellValue(validaContenido("Provisión de aguinaldo"));
             celda = fila.get().createCell(2);
-                    celda.setCellValue(convierteMonto(Double.valueOf(ap.getProvisionAguinaldo().toString())));
+                    celda.setCellValue("$".concat(ap.getProvisionAguinaldo().toString()));
                     celda.setCellStyle(estilo);
 
             fila.set(hojaActual.createRow(numFila.getAndIncrement()));
             crearCeldaBordeEspecial(0,workbook,fila,"");
             crearCeldaBordeEspecial(1,workbook,fila,"SUB TOTAL");
-            crearCeldaBordeEspecial(2,workbook,fila,"" + convierteMonto(Double.valueOf(UtileriasReporte.redondeoCantidad(String.valueOf(ap.getProvisionAguinaldo()+ap.getProvisionImss()+ap.getProvisionIsn()+ap.getProvisionVacaciones()+ap.getProvisionPrimaVacacional()),2))));
+            crearCeldaBordeEspecial(2,workbook,fila,"$" + UtileriasReporte.redondeoCantidad(String.valueOf(ap.getProvisionAguinaldo()+ap.getProvisionImss()+ap.getProvisionIsn()+ap.getProvisionVacaciones()+ap.getProvisionPrimaVacacional()),2));
             crearCeldaBordeEspecial(3,workbook,fila,"");
 
         } catch (Exception ex) {
@@ -843,7 +831,7 @@ public class NominaHistoricaServiceImpl implements NominaHistoricaService {
                     fila.get().createCell(2)
                             .setCellValue("");
                     celda = fila.get().createCell(3);
-                            celda.setCellValue("" + convierteMonto(Double.valueOf(validaContenido(c.getImporte().toString()))));
+                            celda.setCellValue("$" + validaContenido(c.getImporte().toString()));
                             celda.setCellStyle(estilo);
 
                     suma.updateAndGet(v -> v + c.getImporte());
@@ -857,7 +845,7 @@ public class NominaHistoricaServiceImpl implements NominaHistoricaService {
             crearCeldaBordeEspecial(0,workbook,fila,"");
             crearCeldaBordeEspecial(1,workbook,fila,"SUB TOTAL");
             crearCeldaBordeEspecial(2,workbook,fila,"");
-            crearCeldaBordeEspecial(3,workbook,fila,"" + convierteMonto(Precision.round(suma.get(),2)));
+            crearCeldaBordeEspecial(3,workbook,fila,"$" + Precision.round(suma.get(),2));
 
             //Provisiones
             numFila.getAndIncrement();
@@ -867,7 +855,7 @@ public class NominaHistoricaServiceImpl implements NominaHistoricaService {
             fila.get().createCell(1)
                     .setCellValue(validaContenido("Impuesto sobre nómina"));
             celda = fila.get().createCell(3);
-                    celda.setCellValue(convierteMonto(Double.valueOf(ad.getProvisionIsn().toString())));
+                    celda.setCellValue("$".concat(ad.getProvisionIsn().toString()));
             celda.setCellStyle(estilo);
 
             fila.set(hojaActual.createRow(numFila.getAndIncrement()));
@@ -876,7 +864,7 @@ public class NominaHistoricaServiceImpl implements NominaHistoricaService {
             fila.get().createCell(1)
                     .setCellValue(validaContenido("Provisión  de Vacaciones"));
             celda = fila.get().createCell(3);
-                    celda.setCellValue(convierteMonto(Double.valueOf(ad.getProvisionVacaciones().toString())));
+                    celda.setCellValue("$".concat(ad.getProvisionVacaciones().toString()));
             celda.setCellStyle(estilo);
 
             fila.set(hojaActual.createRow(numFila.getAndIncrement()));
@@ -885,7 +873,7 @@ public class NominaHistoricaServiceImpl implements NominaHistoricaService {
             fila.get().createCell(1)
                     .setCellValue(validaContenido("IMSS Patronal"));
             celda = fila.get().createCell(3);
-                    celda.setCellValue(convierteMonto(Double.valueOf(ad.getProvisionImss().toString())));
+                    celda.setCellValue("$".concat(ad.getProvisionImss().toString()));
             celda.setCellStyle(estilo);
 
             fila.set(hojaActual.createRow(numFila.getAndIncrement()));
@@ -894,7 +882,7 @@ public class NominaHistoricaServiceImpl implements NominaHistoricaService {
             fila.get().createCell(1)
                     .setCellValue(validaContenido("Provisión de Prima Vacacional"));
             celda = fila.get().createCell(3);
-                    celda.setCellValue(convierteMonto(Double.valueOf(ad.getProvisionPrimaVacacional().toString())));
+                    celda.setCellValue("$".concat(ad.getProvisionPrimaVacacional().toString()));
             celda.setCellStyle(estilo);
 
             fila.set(hojaActual.createRow(numFila.getAndIncrement()));
@@ -903,13 +891,13 @@ public class NominaHistoricaServiceImpl implements NominaHistoricaService {
             fila.get().createCell(1)
                     .setCellValue(validaContenido("Provisión de aguinaldo"));
             celda = fila.get().createCell(3);
-                    celda.setCellValue(convierteMonto(Double.valueOf(ad.getProvisionAguinaldo().toString())));
+                    celda.setCellValue("$".concat(ad.getProvisionAguinaldo().toString()));
                     celda.setCellStyle(estilo);
 
             fila.set(hojaActual.createRow(numFila.getAndIncrement()));
             crearCeldaBordeEspecial(0,workbook,fila,"");
             crearCeldaBordeEspecial(1,workbook,fila,"SUB TOTAL");
-            crearCeldaBordeEspecial(3,workbook,fila,"" + convierteMonto(Double.valueOf(UtileriasReporte.redondeoCantidad(String.valueOf((ad.getProvisionAguinaldo()+ad.getProvisionImss()+ad.getProvisionIsn()+ad.getProvisionVacaciones()+ad.getProvisionPrimaVacacional())),2))));
+            crearCeldaBordeEspecial(3,workbook,fila,"$" + UtileriasReporte.redondeoCantidad(String.valueOf((ad.getProvisionAguinaldo()+ad.getProvisionImss()+ad.getProvisionIsn()+ad.getProvisionVacaciones()+ad.getProvisionPrimaVacacional())),2));
             crearCeldaBordeEspecial(2,workbook,fila,"");
 
         } catch (Exception ex) {

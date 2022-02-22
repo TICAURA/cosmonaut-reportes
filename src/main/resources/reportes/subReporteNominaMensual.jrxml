@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.18.1.final using JasperReports Library version 6.18.1-9d75d1969e774d4f179fb3be8401e98a0e6d1611  -->
+<!-- Created with Jaspersoft Studio version 6.17.0.final using JasperReports Library version 6.17.0-6d93193241dd8cc42629e188b94f9e0bc5722efd  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="subReporteNominaMensual" pageWidth="749" pageHeight="842" columnWidth="749" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="b2f47e89-00bb-4bfd-a244-15d62611615d">
 	<property name="com.jaspersoft.studio.unit." value="pixel"/>
 	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
@@ -54,7 +54,7 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$F{puesto}]]></textFieldExpression>
 			</textField>
-			<textField pattern="#,##0.00#;#,##0.00#-">
+			<textField>
 				<reportElement positionType="Float" x="0" y="55" width="180" height="14" isRemoveLineWhenBlank="true" forecolor="#7D7D7D" uuid="010f6b05-dcdb-4b6b-9fe5-261b83fe47fc">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5fca76ce-1238-4e62-add2-758508429c6d"/>
 					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
@@ -63,9 +63,9 @@
 					<font size="8"/>
 					<paragraph leftIndent="5"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{sbc}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["$ " + $F{sbc}]]></textFieldExpression>
 			</textField>
-			<textField pattern="#,##0.00#;#,##0.00#-">
+			<textField>
 				<reportElement x="88" y="206" width="90" height="14" isRemoveLineWhenBlank="true" forecolor="#000000" uuid="8d9cb4f6-2110-4922-8e91-d8a945fb3ede">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="46c813dd-7bf3-40db-b8fb-119f6ebb610a"/>
 					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
@@ -75,7 +75,7 @@
 					<font size="8" isBold="false"/>
 					<paragraph leftIndent="0" rightIndent="5"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{totalNeto}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["$ " + $F{totalNeto}]]></textFieldExpression>
 			</textField>
 			<textField textAdjust="StretchHeight">
 				<reportElement x="0" y="20" width="180" height="21" isRemoveLineWhenBlank="true" forecolor="#7D7D7D" uuid="01b425a1-562a-41cf-81dd-a580cab02e20">
@@ -211,7 +211,7 @@
 				</textElement>
 				<text><![CDATA[DEDUCCIONES]]></text>
 			</staticText>
-			<textField pattern="#,##0.00#;#,##0.00#-">
+			<textField>
 				<reportElement x="278" y="206" width="92" height="14" isRemoveLineWhenBlank="true" uuid="4d077aca-d3ee-4ed2-b772-d5c2bd8d0b3c">
 					<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
 				</reportElement>
@@ -221,7 +221,7 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$F{provisionImssPatronal}]]></textFieldExpression>
 			</textField>
-			<textField pattern="#,##0.00#;#,##0.00#-">
+			<textField>
 				<reportElement x="470" y="206" width="90" height="14" isRemoveLineWhenBlank="true" uuid="46077c1c-572f-4b8f-9da6-22f8303ae809">
 					<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
 				</reportElement>
@@ -229,9 +229,9 @@
 					<font size="8"/>
 					<paragraph rightIndent="5"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{totalPercepciones}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["$ " + $F{totalPercepciones}]]></textFieldExpression>
 			</textField>
-			<textField pattern="#,##0.00#;#,##0.00#-">
+			<textField>
 				<reportElement x="660" y="206" width="89" height="14" isRemoveLineWhenBlank="true" uuid="427a3d18-59fc-4e6e-87e4-2678ace25ce5">
 					<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
 				</reportElement>
@@ -239,7 +239,7 @@
 					<font size="8"/>
 					<paragraph rightIndent="5"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{totalDeducciones}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["$ " + $F{totalDeducciones}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

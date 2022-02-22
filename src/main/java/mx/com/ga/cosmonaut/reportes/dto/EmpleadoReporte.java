@@ -2,12 +2,6 @@ package mx.com.ga.cosmonaut.reportes.dto;
 
 import lombok.Data;
 
-
-import java.text.NumberFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
-
 @Data
 public class EmpleadoReporte {
     private String razonSocial;
@@ -66,7 +60,7 @@ public class EmpleadoReporte {
             case "2": return nombre == null ? "" : getNombre();
             case "3": return primerApellido == null ? "" : getPrimerApellido();
             case "4": return segundoApellido == null ? "" : getSegundoApellido();
-            case "5": return fechaNacimiento == null ? "" : formatFecha(getFechaNacimiento());
+            case "5": return fechaNacimiento == null ? "" : getFechaNacimiento();
             case "6": return genero == null ? "" : getGenero();
             case "7": return rfc == null ? "" : getRfc();
             case "8": return curp == null ? "" : getCurp();
@@ -82,10 +76,10 @@ public class EmpleadoReporte {
             case "18": return descripcionArea == null ? "" : getDescripcionArea();
             case "19": return descripcionPuesto == null ? "" : getDescripcionPuesto();
             case "20": return nombreJefe == null ? "" : getNombreJefe();
-            case "21": return fechaInicio == null ? "" : formatFecha(getFechaInicio());
-            case "22": return fechaFin == null ? "" : formatFecha(getFechaFin());
-            case "23": return deFechaAntiguedad == null ? "" : formatFecha(getDeFechaAntiguedad());
-            case "24": return baUltimoDia == null ? "" : formatFecha(getBaUltimoDia());
+            case "21": return fechaInicio == null ? "" : getFechaInicio();
+            case "22": return fechaFin == null ? "" : getFechaFin();
+            case "23": return deFechaAntiguedad == null ? "" : getDeFechaAntiguedad();
+            case "24": return baUltimoDia == null ? "" : getBaUltimoDia();
             case "25": return esActivo == null ? "" : getEsActivo();
             case "26": return nombreRegimenContratacion == null ? "" : getNombreRegimenContratacion();
             case "27": return nombreTipoContrato == null ? "" : getNombreTipoContrato();
@@ -93,11 +87,11 @@ public class EmpleadoReporte {
             case "29": return nombrePolitica == null ? "" : getNombrePolitica();
             case "30": return nombreJornada == null ? "" : getNombreJornada();
             case "31": return esSindicalizado == null ? "" : getEsSindicalizado();
-            case "32": return sueldoBrutoMensual == null ? "" : getMoneda(getSueldoBrutoMensual());
-            case "33": return salarioDiario == null ? "" : getMoneda(getSalarioDiario());
-            case "34": return salarioDiarioIntegrado == null ? "" : getMoneda(getSalarioDiarioIntegrado());
-            case "35": return sbc == null ? "" : getMoneda(getSbc());
-            case "36": return sueldoNetoMensual == null ? "" : getMoneda(getSueldoNetoMensual());
+            case "32": return sueldoBrutoMensual == null ? "" : getSueldoBrutoMensual();
+            case "33": return salarioDiario == null ? "" : getSalarioDiario();
+            case "34": return salarioDiarioIntegrado == null ? "" : getSalarioDiarioIntegrado();
+            case "35": return sbc == null ? "" : getSbc();
+            case "36": return sueldoNetoMensual == null ? "" : getSueldoNetoMensual();
             case "37": return nombreCompensacion == null ? "" : getNombreCompensacion();
             case "38": return estadoEmpresa == null ? "" : getEstadoEmpresa();
             case "39": return areaGeografica == null ? "" : getAreaGeografica();
@@ -370,7 +364,7 @@ public class EmpleadoReporte {
     }
 
     public String getSueldoBrutoMensual() {
-      return sueldoBrutoMensual;
+        return sueldoBrutoMensual;
     }
 
     public void setSueldoBrutoMensual(String sueldoBrutoMensual) {
@@ -378,7 +372,7 @@ public class EmpleadoReporte {
     }
 
     public String getSalarioDiario() {
-       return salarioDiario;
+        return salarioDiario;
     }
 
     public void setSalarioDiario(String salarioDiario) {
@@ -386,7 +380,7 @@ public class EmpleadoReporte {
     }
 
     public String getSalarioDiarioIntegrado() {
-       return salarioDiarioIntegrado;
+        return salarioDiarioIntegrado;
     }
 
     public void setSalarioDiarioIntegrado(String salarioDiarioIntegrado) {
@@ -394,7 +388,7 @@ public class EmpleadoReporte {
     }
 
     public String getSbc() {
-       return sbc;
+        return sbc;
     }
 
     public void setSbc(String sbc) {
@@ -402,7 +396,7 @@ public class EmpleadoReporte {
     }
 
     public String getSueldoNetoMensual() {
-       return sueldoNetoMensual;
+        return sueldoNetoMensual;
     }
 
     public void setSueldoNetoMensual(String sueldoNetoMensual) {
@@ -495,32 +489,5 @@ public class EmpleadoReporte {
 
     public void setEmailContacto(String emailContacto) {
         this.emailContacto = emailContacto;
-    }
-
-    private String formatFecha(String fecha){
-        String resultado = "";
-        try{
-            SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
-
-            resultado = new SimpleDateFormat("dd-MMM-yyyy",new Locale("es","ES")).format(format.parse(fecha).getTime());
-        }catch(Exception e){
-            resultado = "-";
-        }
-
-        return resultado;
-    }
-
-    private String convierteMonto(Double monto){
-        return  String.format("%,.2f", monto);
-    }
-
-    private String getMoneda(String monto){
-        Double valor;
-        try{
-             valor = monto == null ? Double.parseDouble("0.00"):Double.parseDouble(monto);
-        }catch(Exception e){
-            valor = 0.0;
-        }
-        return convierteMonto(valor);
     }
 }

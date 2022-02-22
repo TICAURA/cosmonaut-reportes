@@ -254,7 +254,7 @@ public class CargaEmpleadoServiceImpl implements CargaEmpleadoService {
                     mx.com.ga.cosmonaut.common.util.Constantes.ERROR_EXCEPCION, ex);
         }
     }
-    
+
     @Override
     public RespuestaGenerica crearReporteListaEmpleado(Integer idEmpresa) throws ServiceException {
         try (InputStream reporteJasper = this.getClass().getResourceAsStream(RUTA_JRXML_LISTAEMPLEADO)){
@@ -275,17 +275,12 @@ public class CargaEmpleadoServiceImpl implements CargaEmpleadoService {
             exporter.setExporterOutput(new SimpleOutputStreamExporterOutput(byteArrayOutputStream));
             exporter.setConfiguration(configuration);
             exporter.exportReport();
-
-            ByteArrayInputStream input = new ByteArrayInputStream(byteArrayOutputStream.toByteArray());
-            //crearArchivo(reporte, configuration, byteArrayOutputStream, RUTA_ARCHIVO_LISTAEMPLEADO);
-            String base64 = escribirDatosListaEmpleado(idEmpresa,input);
-            respuesta.setDatos(base64);
-            respuesta.setResultado(mx.com.ga.cosmonaut.common.util.Constantes.RESULTADO_EXITO);
-            respuesta.setMensaje(mx.com.ga.cosmonaut.common.util.Constantes.EXITO);
-            /*if (Boolean.TRUE.equals(crearArchivo(reporte, configuration, byteArrayOutputStream, RUTA_ARCHIVO_LISTAEMPLEADO))
+            if (Boolean.TRUE.equals(crearArchivo(reporte, configuration, byteArrayOutputStream, RUTA_ARCHIVO_LISTAEMPLEADO))
                 && Boolean.TRUE.equals(escribirDatosListaEmpleado(idEmpresa))) {
-
-            }*/
+                respuesta.setDatos(convertiraBase64(RUTA_ARCHIVO_LISTAEMPLEADO));
+                respuesta.setResultado(mx.com.ga.cosmonaut.common.util.Constantes.RESULTADO_EXITO);
+                respuesta.setMensaje(mx.com.ga.cosmonaut.common.util.Constantes.EXITO);
+            }
             return respuesta;
         } catch (Exception ex) {
             throw new ServiceException(mx.com.ga.cosmonaut.common.util.Constantes.ERROR_CLASE +
@@ -461,23 +456,27 @@ public class CargaEmpleadoServiceImpl implements CargaEmpleadoService {
     }
 
 
-    private String escribirDatosListaEmpleado(Integer idEmpresa,InputStream stream) throws ServiceException, IOException {
-
+    private Boolean escribirDatosListaEmpleado(Integer idEmpresa) throws ServiceException{
+        try {
             final GsonBuilder gsonBuilder = new GsonBuilder();
             final Gson gson = gsonBuilder.create();
-        ByteArrayOutputStream salida = new ByteArrayOutputStream();
-            /** consulta. de empleados*/
+            /** consulta.*/
             List<EmpleadosReporte> consultaEmpleadosReporte = empleadosReporteRepository.consultaEmpleados(idEmpresa);
-            consultaEmpleadosReporte = consultaEmpleadosReporte.stream() .distinct().collect(Collectors.toList());
+            consultaEmpleadosReporte = consultaEmpleadosReporte
+                    .stream()
+                    .distinct()
+                    .collect(Collectors.toList());
             String lista = gson.toJson(consultaEmpleadosReporte);
             Type listaEmpleadoReporte =
                     new TypeToken<List<EmpleadoReporte>>(){}.getType();
 
             List<EmpleadoReporte> empleadosReporte = gson.fromJson(lista, listaEmpleadoReporte);
 
-
-                 InputStream file = stream;
+            try (FileInputStream file = new FileInputStream(new File(RUTA_CARPETA +
+                    RUTA_ARCHIVO_LISTAEMPLEADO));
                  XSSFWorkbook workbook = new XSSFWorkbook(file);
+                 FileOutputStream outFile = new FileOutputStream(
+                         new File(RUTA_CARPETA + RUTA_ARCHIVO_LISTAEMPLEADO))) {
 
                 XSSFSheet hojaActual = workbook.getSheetAt(0);
                 hojaActual.createFreezePane(0,1);
@@ -495,11 +494,17 @@ public class CargaEmpleadoServiceImpl implements CargaEmpleadoService {
                     }
                     contEmpleado.getAndIncrement();
                 });
-                workbook.write(salida);
-              return Base64.getEncoder().encodeToString(salida.toByteArray());
-            }
+                workbook.write(outFile);
 
+            }
+            return Boolean.TRUE;
+        } catch (Exception ex) {
+            throw new ServiceException(mx.com.ga.cosmonaut.common.util.Constantes.ERROR_CLASE +
+                    this.getClass().getSimpleName()
+                    + mx.com.ga.cosmonaut.common.util.Constantes.ERROR_METODO +
+                    " escribirDatosListaEmpleado " + mx.com.ga.cosmonaut.common.util.Constantes.ERROR_EXCEPCION, ex);
+        }
     }
 
 
-
+}

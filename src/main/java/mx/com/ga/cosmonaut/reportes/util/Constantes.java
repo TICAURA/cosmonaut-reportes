@@ -9,7 +9,6 @@ public final class Constantes {
     private Constantes() {}
 
     public static final String RUTA_CARPETA = "/Users/ramgm";
-    //public static final String RUTA_CARPETA = "C:\\Users\\hitss\\Documents";
     public static final String RUTA_ARCHIVO_EMPLEADO = "/LayoutCargaMasivaEmpleados.xlsx";
     public static final String RUTA_ARCHIVO_EVENTOSINCIDENCIAS = "/LayoutCargaMasivaEventosIncidencias.xlsx";
     public static final String RUTA_ARCHIVO_EXEMPLEADO = "/LayoutCargaMasivaExEmpleados.xlsx";

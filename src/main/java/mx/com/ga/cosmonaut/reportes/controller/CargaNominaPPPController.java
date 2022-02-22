@@ -22,6 +22,7 @@ public class CargaNominaPPPController {
     @Inject
     private CargaNominaPPPService cargaNominaPPPService;
 
+
     @Operation(summary = "${cosmonaut.controller.cargaMasivaNominaPPP.reportes.resumen}",
             description = "${cosmonaut.controller.cargaMasivaNominaPPP.reportes.descripcion}",
             operationId = "cargaMasivaNominaPPP.reportes")

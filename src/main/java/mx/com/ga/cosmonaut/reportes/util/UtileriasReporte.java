@@ -75,7 +75,9 @@ public class UtileriasReporte {
     
     public static Boolean crearArchivo(JasperPrint reporte, SimpleXlsxReportConfiguration configuration,
                                  ByteArrayOutputStream byteArrayOutputStream, String rutaArchivo) throws ServiceException{
-
+        File directorio = new File(RUTA_CARPETA);
+        if (!directorio.exists())
+            directorio.mkdirs();
         File archivoSalida = new File(RUTA_CARPETA + rutaArchivo);
         try (ByteArrayOutputStream byteArrayOutputStream2 = new ByteArrayOutputStream();
              OutputStream fileOutputStream = new FileOutputStream(archivoSalida)) {

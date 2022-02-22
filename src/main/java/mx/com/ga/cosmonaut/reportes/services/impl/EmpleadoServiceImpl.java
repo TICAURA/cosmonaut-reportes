@@ -37,7 +37,6 @@ import javax.inject.Singleton;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.math.BigInteger;
-import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.chrono.ChronoLocalDate;
 import java.time.chrono.ChronoPeriod;
@@ -96,7 +95,7 @@ public class EmpleadoServiceImpl implements EmpleadoService {
             respuesta.setDatos(reporteService.generaReportePDF(reporte));
             respuesta.setResultado(Constantes.RESULTADO_EXITO);
             respuesta.setMensaje(Constantes.EXITO);
-            //reporteService.generaReportePdfRuta(reporte, "C:\\Users\\Usuario\\Desktop\\ASG\\perfilEmpleado.pdf");
+            reporteService.generaReportePdfRuta(reporte, "C:\\Users\\Usuario\\Desktop\\ASG\\perfilEmpleado.pdf");
             //reporteService.generaReportePdfRuta(reporte, "C:\\reportes\\layoutCargaMasiva\\perfilEmpleado.pdf");
             return respuesta;
         } catch (Exception ex) {
@@ -225,7 +224,7 @@ public class EmpleadoServiceImpl implements EmpleadoService {
         obtenTablaBasica(ConstantesReportes.FILA_APELLIDO_PATERNO,Utilidades.validaString(persona.getApellidoPaterno()),lista);
         obtenTablaBasica(ConstantesReportes.FILA_APELLIDO_MATERNO,Utilidades.validaString(persona.getApellidoMaterno()),lista);
         obtenTablaBasica(ConstantesReportes.FILA_GENERO,this.genero(Utilidades.validaString(persona.getGenero())),lista);
-        obtenTablaBasica(ConstantesReportes.FILA_FECHA_NACIMIENTO,getFechaParseada(persona.getFechaNacimiento()),lista);
+        obtenTablaBasica(ConstantesReportes.FILA_FECHA_NACIMIENTO,Utilidades.fechaTexto(persona.getFechaNacimiento()),lista);
         obtenTablaBasica(ConstantesReportes.FILA_CURP,Utilidades.validaString(persona.getCurp()),lista);
         obtenTablaBasica(ConstantesReportes.FILA_RFC,Utilidades.validaString(persona.getRfc()),lista);
         obtenTablaBasica(ConstantesReportes.FILA_NSS,Utilidades.validaString(persona.getNss()),lista);
@@ -301,7 +300,7 @@ public class EmpleadoServiceImpl implements EmpleadoService {
             obtenTablaBasica(ConstantesReportes.FILA_SUELDO_DIARIO,
                     Utilidades.formatoMoneda(contratoColaborador.getSalarioDiario()),lista);
 
-            Integer vacaciones = beneficiosPolitica.getDiasVacaciones() + (contratoColaborador.getDiasVacaciones()== null ? 0: contratoColaborador.getDiasVacaciones());
+            Integer vacaciones = beneficiosPolitica.getDiasVacaciones() + contratoColaborador.getDiasVacaciones();
 
             obtenTablaBasica(ConstantesReportes.FILA_DIAS_VACACIONES,
                     vacaciones.toString(),lista);
@@ -352,19 +351,15 @@ public class EmpleadoServiceImpl implements EmpleadoService {
         obtenTablaBasica(ConstantesReportes.FILA_TIPO_CONTRATO,
                 Utilidades.validaString(contratoColaborador.getTipoContratoId().getDescripcion()),lista);
         obtenTablaBasica(ConstantesReportes.FILA_FECHA_INICIO_CONTRATO,
-                getFechaParseada(contratoColaborador.getFechaContrato()),lista);
+                Utilidades.fechaTexto(contratoColaborador.getFechaContrato()),lista);
         obtenTablaBasica(ConstantesReportes.FILA_JORNADA,Utilidades.validaString(contratoColaborador.getJornadaId().getNombre()),lista);
         obtenTablaBasica(ConstantesReportes.FILA_FECHA_FIN_CONTRATO,
-                getFechaParseada(contratoColaborador.getFechaFin()),lista);
+                Utilidades.fechaTexto(contratoColaborador.getFechaFin()),lista);
         /**obtenTablaBasica(ConstantesReportes.FILA_FECHA_ALTA_IMSS,Utilidades.fechaTexto(contratoColaborador.getFechaAltaImss())));*/
         obtenTablaBasica(ConstantesReportes.FILA_AREA_GEOGRAFICA,
                 Utilidades.validaString(contratoColaborador.getAreaGeograficaId().getDescripcion()),lista);
         /**obtenTablaBasica(ConstantesReportes.FILA_FECHA_ALTA_IMSS,contratoColaborador.getFechaAltaImss() != null ? contratoColaborador.getFechaAltaImss().toString() : ""));*/
         return lista;
-    }
-
-    private String getFechaParseada(Date fecha){
-        return fecha == null?"":new SimpleDateFormat("dd-MMM-yyyy").format(fecha).replace(".","");
     }
 
     private void obtenTablaBasica(String titulo, String descipcion, List<TablaBasicaDto> lista){

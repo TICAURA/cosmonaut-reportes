@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.18.1.final using JasperReports Library version 6.18.1-9d75d1969e774d4f179fb3be8401e98a0e6d1611  -->
+<!-- Created with Jaspersoft Studio version 6.17.0.final using JasperReports Library version 6.17.0-6d93193241dd8cc42629e188b94f9e0bc5722efd  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SubReporteRayaNomina" pageWidth="754" pageHeight="842" columnWidth="754" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="4b680142-b941-4c94-857c-f794fad1b48b">
 	<field name="personaId" class="java.lang.Integer"/>
 	<field name="apellidoPat" class="java.lang.String"/>
@@ -42,7 +42,7 @@
 				<textElement verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{puesto}]]></textFieldExpression>
 			</textField>
-			<textField pattern="d-MMM-yyyy">
+			<textField pattern="yyyy-MM-dd">
 				<reportElement x="330" y="40" width="70" height="13" isRemoveLineWhenBlank="true" forecolor="#0D2454" uuid="77f671d7-bc42-40cc-a12f-6633854ae93d">
 					<printWhenExpression><![CDATA[$F{fechaAntiguedad} != null ? true : false]]></printWhenExpression>
 				</reportElement>
@@ -168,7 +168,7 @@
 				</textElement>
 				<text><![CDATA[Total Percepciones]]></text>
 			</staticText>
-			<textField pattern="#,##0.###;#,##0.###-">
+			<textField>
 				<reportElement positionType="Float" x="210" y="203" width="100" height="13" forecolor="#0D2454" uuid="59b2d6b6-ad2a-43a1-93d2-eb1e0e29ba89">
 					<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
 				</reportElement>
@@ -177,7 +177,7 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$F{totalPercepciones}]]></textFieldExpression>
 			</textField>
-			<textField pattern="#,##0.###;#,##0.###-">
+			<textField>
 				<reportElement positionType="Float" x="210" y="220" width="100" height="13" forecolor="#0D2454" uuid="131ea1fc-d758-4071-a3b6-8a2571c43a37">
 					<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
 				</reportElement>
@@ -197,7 +197,7 @@
 				</textElement>
 				<text><![CDATA[Neto a Pagar]]></text>
 			</staticText>
-			<textField pattern="#,##0.###;#,##0.###-">
+			<textField>
 				<reportElement positionType="Float" x="581" y="203" width="100" height="13" isRemoveLineWhenBlank="true" uuid="ea3e5001-65f7-4091-b288-a970a7a3a533">
 					<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
 				</reportElement>
