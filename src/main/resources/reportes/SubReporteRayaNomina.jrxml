@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.18.1.final using JasperReports Library version 6.18.1-9d75d1969e774d4f179fb3be8401e98a0e6d1611  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SubReporteRayaNomina" pageWidth="754" pageHeight="842" columnWidth="754" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="4b680142-b941-4c94-857c-f794fad1b48b">
+	<field name="personaId" class="java.lang.Integer"/>
+	<field name="apellidoPat" class="java.lang.String"/>
+	<field name="apellidoMat" class="java.lang.String"/>
+	<field name="nombre" class="java.lang.String"/>
+	<field name="puesto" class="java.lang.String"/>
+	<field name="fechaAntiguedad" class="java.util.Date"/>
+	<field name="diasLaborados" class="java.lang.Integer"/>
+	<field name="rfc" class="java.lang.String"/>
+	<field name="salarioDiario" class="java.lang.Double"/>
+	<field name="nss" class="java.lang.String"/>
+	<field name="sbc" class="java.lang.Double"/>
+	<field name="curp" class="java.lang.String"/>
+	<field name="cotizacion" class="java.lang.String"/>
+	<field name="horasExtras" class="java.lang.Double"/>
+	<field name="listaDeducciones" class="java.util.Collection"/>
+	<field name="listaPercepciones" class="java.util.Collection"/>
+	<field name="totalDeducciones" class="java.lang.Double"/>
+	<field name="totalNeto" class="java.lang.Double"/>
+	<field name="totalPercepciones" class="java.lang.Double"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="287" splitType="Stretch">
+			<textField>
+				<reportElement x="10" y="0" width="350" height="13" isRemoveLineWhenBlank="true" forecolor="#0D2454" uuid="d8b1ae76-3183-4ca9-862b-d29e6a276488"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{personaId}+"   -   "+$F{nombre}+" "+$F{apellidoPat}+" "+$F{apellidoMat}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="40" y="13" width="50" height="13" isRemoveLineWhenBlank="true" forecolor="#0D2454" uuid="b1525b29-991e-4a9c-99ab-e7ca27901b03"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PUESTO:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="90" y="13" width="110" height="13" isRemoveLineWhenBlank="true" forecolor="#0D2454" uuid="f4106764-724a-4820-9194-40707a1c99d3"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{puesto}]]></textFieldExpression>
+			</textField>
+			<textField pattern="d-MMM-yyyy">
+				<reportElement x="330" y="40" width="70" height="13" isRemoveLineWhenBlank="true" forecolor="#0D2454" uuid="77f671d7-bc42-40cc-a12f-6633854ae93d">
+					<printWhenExpression><![CDATA[$F{fechaAntiguedad} != null ? true : false]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{fechaAntiguedad}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="208" y="40" width="122" height="13" isRemoveLineWhenBlank="true" forecolor="#0D2454" uuid="5e0e8188-9f45-4432-a0b3-d1c7f93620f1"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[FECHA ANTIGUEDAD:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="130" y="29" width="60" height="13" isRemoveLineWhenBlank="true" forecolor="#0D2454" uuid="4271b0cd-3c7a-4428-988d-2aa497a953e4"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{diasLaborados}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="40" y="29" width="90" height="13" isRemoveLineWhenBlank="true" forecolor="#0D2454" uuid="6a32fa8a-f858-47ac-bc81-3dd354faaf14"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[DÍAS PAGADOS:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="240" y="13" width="100" height="13" isRemoveLineWhenBlank="true" forecolor="#0D2454" uuid="c8dc416f-bf6d-48d2-b166-ee8ae25f46b4"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{rfc}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="208" y="13" width="32" height="13" isRemoveLineWhenBlank="true" forecolor="#0D2454" uuid="93f59602-387d-4813-9f2f-e82a5c175c64"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[RFC:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="310" y="26" width="88" height="13" isRemoveLineWhenBlank="true" forecolor="#0D2454" uuid="96d94e0f-d364-45af-bf93-ae4657278c1b">
+					<printWhenExpression><![CDATA[$F{salarioDiario} != null ? true : false]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{salarioDiario}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="208" y="26" width="102" height="13" isRemoveLineWhenBlank="true" forecolor="#0D2454" uuid="6aefe3bd-8b3d-4d65-8953-164a0355bd93"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[SALARIO DIARIO:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="450" y="13" width="100" height="13" isRemoveLineWhenBlank="true" forecolor="#0D2454" uuid="5897d273-c509-47c1-b55e-7003395e093f"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{nss}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="410" y="13" width="40" height="13" isRemoveLineWhenBlank="true" forecolor="#0D2454" uuid="79c9149b-e407-464f-9ccd-35d88ed2120e"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[NSS:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="450" y="26" width="100" height="13" isRemoveLineWhenBlank="true" forecolor="#0D2454" uuid="6de34507-af2f-47a7-9a30-175dcfe4d67b"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{sbc}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="410" y="26" width="40" height="13" isRemoveLineWhenBlank="true" forecolor="#0D2454" uuid="f6b9e45c-428c-4faf-befd-92154499b52b"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[S.B.C:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="600" y="13" width="135" height="13" isRemoveLineWhenBlank="true" forecolor="#0D2454" uuid="8c6ac33c-b2b9-412b-a89b-990f738e5db3"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{curp}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="565" y="13" width="35" height="13" isRemoveLineWhenBlank="true" forecolor="#0D2454" uuid="cc9a2a74-dcf6-4559-a2db-c4789c6da43e"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[CURP:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="635" y="26" width="100" height="13" isRemoveLineWhenBlank="true" forecolor="#0D2454" uuid="5ef3c6ee-76e6-4dfd-83de-e88f527e2e51"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{cotizacion}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="565" y="26" width="70" height="13" isRemoveLineWhenBlank="true" forecolor="#0D2454" uuid="db2e35fe-b213-4e66-a3d0-77aa4638a97a"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[COTIZACIÓN:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="659" y="39" width="75" height="13" isRemoveLineWhenBlank="true" forecolor="#0D2454" uuid="0cf1fb07-a13a-445a-8f67-84383d609ef4"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{horasExtras}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="565" y="39" width="94" height="13" isRemoveLineWhenBlank="true" forecolor="#0D2454" uuid="78a6579a-c727-4035-97a4-e3e96d126b42"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[HORAS EXTRAS:]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement positionType="Float" x="40" y="200" width="695" height="1" forecolor="#0AC6C9" uuid="6e0bed07-a838-457b-9d6b-f3e33b7b8869">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</rectangle>
+			<staticText>
+				<reportElement positionType="Float" x="40" y="203" width="100" height="13" forecolor="#0D2454" uuid="f25c6c07-fb02-45ef-ab2b-5ae09b9e9374">
+					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+				</reportElement>
+				<textElement>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<text><![CDATA[Total Percepciones]]></text>
+			</staticText>
+			<textField pattern="#,##0.###;#,##0.###-">
+				<reportElement positionType="Float" x="210" y="203" width="100" height="13" forecolor="#0D2454" uuid="59b2d6b6-ad2a-43a1-93d2-eb1e0e29ba89">
+					<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+				</reportElement>
+				<textElement>
+					<paragraph rightIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{totalPercepciones}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.###;#,##0.###-">
+				<reportElement positionType="Float" x="210" y="220" width="100" height="13" forecolor="#0D2454" uuid="131ea1fc-d758-4071-a3b6-8a2571c43a37">
+					<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+				</reportElement>
+				<textElement>
+					<font isBold="true"/>
+					<paragraph rightIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{totalNeto}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="40" y="220" width="100" height="13" forecolor="#0D2454" uuid="16240272-eda3-4083-ba84-047984ccce92">
+					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+				</reportElement>
+				<textElement>
+					<font isBold="true"/>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<text><![CDATA[Neto a Pagar]]></text>
+			</staticText>
+			<textField pattern="#,##0.###;#,##0.###-">
+				<reportElement positionType="Float" x="581" y="203" width="100" height="13" isRemoveLineWhenBlank="true" uuid="ea3e5001-65f7-4091-b288-a970a7a3a533">
+					<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<paragraph rightIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{totalDeducciones}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="411" y="203" width="100" height="13" uuid="aaf14367-4123-4a73-9f14-4f0964811474">
+					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+				</reportElement>
+				<textElement>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<text><![CDATA[Total Deducciones]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="410" y="250" width="270" height="1" forecolor="#0AC6C9" uuid="473916aa-c31e-4f6c-a19f-6bcc7e06faa2">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="310" y="58" width="101" height="1" forecolor="#0AC6C9" uuid="90ead3cd-9585-4b5a-8d38-c18363855c66">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="310" y="71" width="101" height="1" forecolor="#0AC6C9" uuid="2614f5a4-8741-4a2b-80c0-02fef8f97c84">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</rectangle>
+			<subreport>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="40" y="58" width="270" height="132" uuid="3d84b4c7-209e-4c88-b930-ec9cb6ddaaae"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{listaPercepciones})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[this.getClass().getResourceAsStream("/reportes/TablaPercepcionRayaNomina.jasper");]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="410" y="59" width="325" height="131" uuid="ef92306a-3632-4f4c-8a61-aca253e9d94f"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{listaDeducciones})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[this.getClass().getResourceAsStream("/reportes/TablaDeduccionRayaNomina.jasper");]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+</jasperReport>

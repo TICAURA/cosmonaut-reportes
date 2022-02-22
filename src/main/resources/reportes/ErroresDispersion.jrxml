@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.16.0.final using JasperReports Library version 6.16.0-48579d909b7943b64690c65c71e07e0b80981928  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ErroresDispersion" pageWidth="802" pageHeight="555" orientation="Landscape" columnWidth="802" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="215982ac-553e-496e-8f0c-4f576c73fc16">
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="nomina" class="java.lang.String"/>
+	<field name="numeroEmpleado" class="java.lang.String"/>
+	<field name="nombre" class="java.lang.String"/>
+	<field name="rfc" class="java.lang.String"/>
+	<field name="banco" class="java.lang.String"/>
+	<field name="clave" class="java.lang.String"/>
+	<field name="estatus" class="java.lang.Boolean"/>
+	<field name="observaciones" class="java.lang.String"/>
+	<field name="fechaDispersion" class="java.sql.Timestamp"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="90" height="30" isPrintWhenDetailOverflows="true" forecolor="#000000" backcolor="#1EC1AF" uuid="dad5a697-f71f-4b41-9e22-08f68b52e47c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="411fe89c-5ffb-4395-a8be-8f2d1f460158"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<pen lineStyle="Solid" lineColor="#000000"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Nómina]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="90" y="0" width="89" height="30" isPrintWhenDetailOverflows="true" forecolor="#000000" backcolor="#1EC1AF" uuid="0b6c77f5-4b8a-4099-b764-aa076cec7aec">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2f8e0734-d77a-491f-a21a-886dfff5e0a9"/>
+				</reportElement>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<pen lineStyle="Solid" lineColor="#000000"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Número de empleado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="179" y="0" width="89" height="30" isPrintWhenDetailOverflows="true" forecolor="#000000" backcolor="#1EC1AF" uuid="04eff150-69a0-4c3e-bdd4-df9b8a3f5652">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b3f75ff0-c69f-4db4-9ca2-1e069e315804"/>
+				</reportElement>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<pen lineStyle="Solid" lineColor="#000000"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Nombre del empleado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="268" y="0" width="89" height="30" isPrintWhenDetailOverflows="true" forecolor="#000000" backcolor="#1EC1AF" uuid="8a8e092d-6b49-46a1-bc8f-4a51a947f1e9">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="37476215-e550-40ec-ac0b-74126ee7a5a5"/>
+				</reportElement>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<pen lineStyle="Solid" lineColor="#000000"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[RFC]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="357" y="0" width="89" height="30" isPrintWhenDetailOverflows="true" forecolor="#000000" backcolor="#1EC1AF" uuid="ead163bd-8318-4c0d-ad44-019a8cbd25c3">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1c00056e-600b-4863-9bf8-8410d5b95ba4"/>
+				</reportElement>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<pen lineStyle="Solid" lineColor="#000000"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Banco]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="446" y="0" width="89" height="30" isPrintWhenDetailOverflows="true" forecolor="#000000" backcolor="#1EC1AF" uuid="46919a80-6c48-4498-8126-e563e85ea59e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="dc1c985a-cb54-464d-a04d-0a881d7e5b45"/>
+				</reportElement>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<pen lineStyle="Solid" lineColor="#000000"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Clabe]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="535" y="0" width="89" height="30" isPrintWhenDetailOverflows="true" forecolor="#000000" backcolor="#1EC1AF" uuid="82b06887-fd18-419a-a374-bb4998b2bea6">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9bf527eb-1690-4eb3-9638-592d0928fb70"/>
+				</reportElement>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<pen lineStyle="Solid" lineColor="#000000"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Estatus]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="624" y="0" width="89" height="30" isPrintWhenDetailOverflows="true" forecolor="#000000" backcolor="#1EC1AF" uuid="0ed4b706-afd5-4594-ad24-ee518c5d63bf">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="466a37d4-6f9a-4178-80ca-9451ef26c4ee"/>
+				</reportElement>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<pen lineStyle="Solid" lineColor="#000000"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Observación]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="713" y="0" width="89" height="30" isPrintWhenDetailOverflows="true" forecolor="#000000" backcolor="#1EC1AF" uuid="f76f3bff-22c9-4718-b4ed-a24170345660">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="21540d5d-2df7-4a98-b2e5-dc0fe1445b17"/>
+				</reportElement>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<pen lineStyle="Solid" lineColor="#000000"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Fecha de dispersión]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.HorizontalRowLayout"/>
+			<textField textAdjust="StretchHeight">
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20" isPrintWhenDetailOverflows="true" uuid="dae5e40f-6073-4c2e-8f55-7498158deae4">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="411fe89c-5ffb-4395-a8be-8f2d1f460158"/>
+				</reportElement>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<pen lineStyle="Solid" lineColor="#000000"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{nomina}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement stretchType="RelativeToBandHeight" x="90" y="0" width="89" height="20" isPrintWhenDetailOverflows="true" uuid="1fd75ea5-25b6-4e5d-a7bd-dc9a52c0bba4">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2f8e0734-d77a-491f-a21a-886dfff5e0a9"/>
+				</reportElement>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<pen lineStyle="Solid" lineColor="#000000"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{numeroEmpleado}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement stretchType="RelativeToBandHeight" x="179" y="0" width="89" height="20" isPrintWhenDetailOverflows="true" uuid="55cfeba1-e920-4b46-99c9-e216ea118687">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b3f75ff0-c69f-4db4-9ca2-1e069e315804"/>
+				</reportElement>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<pen lineStyle="Solid" lineColor="#000000"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement stretchType="RelativeToBandHeight" x="268" y="0" width="89" height="20" isPrintWhenDetailOverflows="true" uuid="fad88e99-4f29-43ee-8a82-0944fbc057ad">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="37476215-e550-40ec-ac0b-74126ee7a5a5"/>
+				</reportElement>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<pen lineStyle="Solid" lineColor="#000000"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{rfc}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement stretchType="RelativeToBandHeight" x="357" y="0" width="89" height="20" isPrintWhenDetailOverflows="true" uuid="9e5b0956-75ca-40cd-a333-2054df36f82e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1c00056e-600b-4863-9bf8-8410d5b95ba4"/>
+				</reportElement>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<pen lineStyle="Solid" lineColor="#000000"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{banco}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement stretchType="RelativeToBandHeight" x="446" y="0" width="89" height="20" isPrintWhenDetailOverflows="true" uuid="aa684d2e-360f-4a66-9762-e77af5fed5fd">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="dc1c985a-cb54-464d-a04d-0a881d7e5b45"/>
+				</reportElement>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<pen lineStyle="Solid" lineColor="#000000"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{clave}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement stretchType="RelativeToBandHeight" mode="Transparent" x="535" y="0" width="89" height="20" isPrintWhenDetailOverflows="true" uuid="e967ade6-ca92-4eb4-83e7-b3c24a4b2e16">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9bf527eb-1690-4eb3-9638-592d0928fb70"/>
+				</reportElement>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<pen lineStyle="Solid" lineColor="#000000"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{estatus}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement stretchType="RelativeToBandHeight" x="624" y="0" width="89" height="20" isPrintWhenDetailOverflows="true" uuid="682133e3-fe1e-431e-847f-0d3bbd375acc">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="466a37d4-6f9a-4178-80ca-9451ef26c4ee"/>
+				</reportElement>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<pen lineStyle="Solid" lineColor="#000000"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{observaciones}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement stretchType="RelativeToBandHeight" x="713" y="0" width="89" height="20" isPrintWhenDetailOverflows="true" uuid="e5f0a661-7eaf-4013-bc65-d83cef28f193">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="21540d5d-2df7-4a98-b2e5-dc0fe1445b17"/>
+				</reportElement>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<pen lineStyle="Solid" lineColor="#000000"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{fechaDispersion}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

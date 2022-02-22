@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.18.1.final using JasperReports Library version 6.18.1-9d75d1969e774d4f179fb3be8401e98a0e6d1611  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="AcumuladoXconcepto" pageWidth="792" pageHeight="612" orientation="Landscape" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="fd6dbfc1-d7eb-4c9e-a5e3-14d16155c723">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Sample DB"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<parameter name="pPeriodo" class="java.lang.String"/>
+	<parameter name="pNombreEmpresa" class="java.lang.String"/>
+	<parameter name="pRFC" class="java.lang.String"/>
+	<parameter name="pRegistroPatronal" class="java.lang.String"/>
+	<parameter name="pNetoApagarEfectivo" class="java.lang.String"/>
+	<parameter name="pNetoApagarEspecie" class="java.lang.String"/>
+	<parameter name="pNetoApagar" class="java.lang.String"/>
+	<parameter name="pTituloProvisiones" class="java.lang.String"/>
+	<parameter name="pListaProvisiones" class="java.util.Collection"/>
+	<parameter name="pTituloPercepciones" class="java.lang.String"/>
+	<parameter name="pListaPercepciones" class="java.util.Collection"/>
+	<parameter name="pListaDeducciones" class="java.util.Collection"/>
+	<parameter name="pTituloDeducciones" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="42" splitType="Stretch">
+			<textField>
+				<reportElement x="560" y="22" width="194" height="20" forecolor="#0D2454" uuid="47c553ce-f84d-4846-a4cf-82de050b36cb"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{pPeriodo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="560" y="0" width="194" height="20" forecolor="#0D2454" uuid="d5c50a8d-b564-4886-8f99-d80c7f960d95"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<text><![CDATA[Acumulados de nómina por concepto]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="0" width="180" height="30" forecolor="#0D2454" uuid="56146399-7ec4-4575-b8e8-c561ba7c773d"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pNombreEmpresa}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="57" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="180" height="20" forecolor="#0D2454" uuid="2be3ec23-b4a9-49f7-8c6c-4293a9f9fead"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pNombreEmpresa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="20" width="180" height="16" forecolor="#B5A7A7" uuid="2867bc2c-5e43-4b37-8ad7-e363d4380b80"/>
+				<textFieldExpression><![CDATA[$P{pRFC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="36" width="180" height="16" forecolor="#B5A7A7" uuid="4df74811-1ada-4c4d-81f0-1d5b7d61527c"/>
+				<textFieldExpression><![CDATA[$P{pRegistroPatronal}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="31" splitType="Stretch">
+			<subreport>
+				<reportElement positionType="Float" x="0" y="1" width="250" height="25" uuid="79215c66-af59-46c1-b9f9-24ccb3cca17f">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<subreportParameter name="pTitulo">
+					<subreportParameterExpression><![CDATA[$P{pTituloProvisiones}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{pListaProvisiones})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[this.getClass().getResourceAsStream("/reportes/TablaAcumuladoConcepto.jasper");]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement positionType="Float" x="250" y="1" width="250" height="25" uuid="55a2c935-f5bb-49c5-bcec-d5c8396a20f9">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<subreportParameter name="pTitulo">
+					<subreportParameterExpression><![CDATA[$P{pTituloPercepciones}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{pListaPercepciones})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[this.getClass().getResourceAsStream("/reportes/TablaAcumuladoConcepto.jasper");]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement positionType="Float" x="500" y="1" width="250" height="25" uuid="820711c5-0756-4822-bb93-01ee7bab171c">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<subreportParameter name="pTitulo">
+					<subreportParameterExpression><![CDATA[$P{pTituloDeducciones}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{pListaDeducciones})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[this.getClass().getResourceAsStream("/reportes/TablaAcumuladoConcepto.jasper");]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="27" splitType="Stretch">
+			<staticText>
+				<reportElement x="566" y="5" width="104" height="16" forecolor="#0D2454" uuid="4e7c2b73-9e69-4f3c-915c-168c1473c5b3">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NETO A PAGAR]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="670" y="5" width="80" height="16" forecolor="#00CC99" uuid="38e463d2-7a91-4a07-9892-5b1b7e1e546b">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pNetoApagar}]]></textFieldExpression>
+			</textField>
+			<rectangle radius="1">
+				<reportElement mode="Opaque" x="0" y="4" width="775" height="2" forecolor="#00CC99" backcolor="#00CC99" uuid="b6c65d03-0c0e-473d-9085-ef37317a581d">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0" lineStyle="Solid"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle radius="1">
+				<reportElement mode="Opaque" x="0" y="20" width="775" height="2" forecolor="#00CC99" backcolor="#00CC99" uuid="8837374d-927d-4ce9-a355-ac5434fd00d6">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0" lineStyle="Solid"/>
+				</graphicElement>
+			</rectangle>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="18" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="17" forecolor="#0D2454" uuid="2164e9cc-a1c2-48b8-a95a-b82b758d5218"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[Acumulados de nómina por concepto]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="676" y="0" width="50" height="16" forecolor="#0D2454" uuid="d4d128b1-73d4-4444-be52-e432bb4b2fab">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Página" + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="726" y="0" width="24" height="16" forecolor="#0D2454" uuid="751097d7-2db2-42e2-aebd-28db848cb24b">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" de " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

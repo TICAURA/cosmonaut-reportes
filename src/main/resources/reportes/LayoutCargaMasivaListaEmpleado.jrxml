@@ -1,0 +1,549 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.18.1.final using JasperReports Library version 6.18.1-9d75d1969e774d4f179fb3be8401e98a0e6d1611  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="LayoutCargaMasivaListaEmpleado" pageWidth="7456" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="0" rightMargin="0" topMargin="20" bottomMargin="20" uuid="13ae141f-5e7c-45ba-af96-ed6d35306147">
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band height="51" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="200" height="30" backcolor="#1EC1AF" uuid="70f6eb51-ebf3-4bbc-b709-582897042d08">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Razón social]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="200" y="0" width="90" height="30" backcolor="#1EC1AF" uuid="e80512e5-62b3-4e06-a179-da121ee3d6b6">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Número de empleado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="290" y="0" width="90" height="30" backcolor="#1EC1AF" uuid="b0b34f43-48bb-41c6-900c-72b39d958f7a"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="380" y="0" width="100" height="30" backcolor="#1EC1AF" uuid="db521423-7fcf-4900-9f98-9f009a7c6912"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Primer apellido]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="480" y="0" width="100" height="30" backcolor="#1EC1AF" uuid="30ef9044-7594-4088-bee9-c9388dbc2b7d"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Segundo apellido]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="580" y="0" width="90" height="30" backcolor="#1EC1AF" uuid="6356ccfd-37c2-409c-99c9-fd4b88632fe7"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Fecha de nacimiento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="670" y="0" width="90" height="30" backcolor="#1EC1AF" uuid="414500e2-a012-42f2-a3c7-da5565fc6605"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Género]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="760" y="0" width="120" height="30" backcolor="#1EC1AF" uuid="5d44b18b-345b-4025-9248-ffdfded6ed08"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[RFC]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="880" y="0" width="200" height="30" backcolor="#1EC1AF" uuid="a6d9256e-d319-42bb-9e6a-69998ad63e02"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[CURP]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="1080" y="0" width="120" height="30" backcolor="#1EC1AF" uuid="b280afed-e376-4cd8-91fe-3f3dc362fe74"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Seguro social]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="1200" y="0" width="130" height="30" backcolor="#1EC1AF" uuid="6bbdeffe-773a-4b05-9fd6-eb403a6c5ffd"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Registro patronal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="1330" y="0" width="80" height="30" backcolor="#1EC1AF" uuid="bcf8f4c8-41ba-41b3-9142-ff1822899725"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Estado civil]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="1410" y="0" width="60" height="30" backcolor="#1EC1AF" uuid="6df7860c-09e2-45b8-8647-105ed85f26d4"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Número de hijos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="1470" y="0" width="610" height="30" backcolor="#1EC1AF" uuid="4a3626ab-9cfd-4bad-9e09-d89e2fea20c9"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Domicilio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="2080" y="0" width="80" height="30" backcolor="#1EC1AF" uuid="136f622e-ff6f-4b3c-bf5b-b19817bd9b25"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Teléfono]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="2160" y="0" width="80" height="30" backcolor="#1EC1AF" uuid="84630fb4-1b5e-4bfc-b741-db6fe0d754ad"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Celular]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="2240" y="0" width="180" height="30" backcolor="#1EC1AF" uuid="cb69a1a4-5612-4284-b6d1-2dbc39d62ad9"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Correo empresarial]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="2420" y="0" width="180" height="30" backcolor="#1EC1AF" uuid="df43648d-62f5-4e2a-bca2-03b894377fb4"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Correo personal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="2600" y="0" width="150" height="30" backcolor="#1EC1AF" uuid="8bebab62-4bf0-4fa6-8948-ac7f66133f1e"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Área]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="2750" y="0" width="150" height="30" backcolor="#1EC1AF" uuid="6ad414e5-5753-45ce-b99a-94e00da7de02"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Puesto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="2900" y="0" width="170" height="30" backcolor="#1EC1AF" uuid="9cdd6a1b-561c-43ad-97e1-d5da0d2c44f4"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Jefe inmediato]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="3070" y="0" width="110" height="30" backcolor="#1EC1AF" uuid="14156fa3-15e2-43ab-a9f3-b5d5f08f41eb"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Fecha de ingreso]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="3180" y="0" width="120" height="30" backcolor="#1EC1AF" uuid="6ad5ed3b-5518-4b6a-83c4-dea6cfb5981f"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Fecha fin de contrato]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="3300" y="0" width="120" height="30" backcolor="#1EC1AF" uuid="f3080d4c-31f3-4816-8d4a-e2d8274d27f6"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Fecha de antigüedad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="3420" y="0" width="120" height="30" backcolor="#1EC1AF" uuid="19fd91c8-8656-40e7-9991-24e818deb2ab"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Fecha de baja]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="3540" y="0" width="90" height="30" backcolor="#1EC1AF" uuid="f410f0ea-1e9a-48bf-ad88-0f365eb529e6"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Estatus]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="3630" y="0" width="450" height="30" backcolor="#1EC1AF" uuid="3d5f6498-2a97-4cac-9e81-275fe50179e5"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Régimen de contratación]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="4080" y="0" width="280" height="30" backcolor="#1EC1AF" uuid="74fb2674-f1f2-44ac-b675-e665ee71bcb7"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Tipo de contrato]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="4360" y="0" width="170" height="30" backcolor="#1EC1AF" uuid="c50be0e8-8805-4a0a-b417-c46e4cf89de6"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Grupo de nómina]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="4530" y="0" width="150" height="30" backcolor="#1EC1AF" uuid="8b0f4e9a-38a5-42bd-95a9-42456b635931"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Política]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="4680" y="0" width="130" height="30" backcolor="#1EC1AF" uuid="1ab10440-288f-4f25-88d9-b35a58e7418b"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Jornada]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="4810" y="0" width="70" height="30" backcolor="#1EC1AF" uuid="22e91896-52b6-45c2-8c2a-e0ad58ab6281"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Sindicalizado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="4880" y="0" width="120" height="30" backcolor="#1EC1AF" uuid="295830ac-bb43-4041-b539-e2643787b9d2"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Sueldo bruto mensual]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="5000" y="0" width="90" height="30" backcolor="#1EC1AF" uuid="7846ae47-302d-4836-a28b-014f91c0ae95"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Salario diario]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="5090" y="0" width="120" height="30" backcolor="#1EC1AF" uuid="536ab097-4ae3-4f98-b719-c3af64681b9b"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Salario diario integrado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="5210" y="0" width="140" height="30" backcolor="#1EC1AF" uuid="825da579-6426-4965-80f8-041f90980f9f"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Salario base de cotización]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="5350" y="0" width="120" height="30" backcolor="#1EC1AF" uuid="c1392639-349a-4581-bcd2-1ad35346ccb7"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Salario neto mensual]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="5470" y="0" width="100" height="30" backcolor="#1EC1AF" uuid="238e0e86-cea4-4cc7-85c6-ea4c170aa0b9"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Tipo de compensación]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="5570" y="0" width="140" height="30" backcolor="#1EC1AF" uuid="edac68fe-2cec-43af-a633-ea0aaa31cb64"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Entidad federativa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="5710" y="0" width="160" height="30" backcolor="#1EC1AF" uuid="a56b0e39-8dc4-402f-97ea-6b0854c2b804"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Área geográfica]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="5870" y="0" width="160" height="30" backcolor="#1EC1AF" uuid="3aabd9d1-61fb-477a-bf31-9bc174012470"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Método de pago]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="6030" y="0" width="200" height="30" backcolor="#1EC1AF" uuid="53940e47-71eb-48c4-a68c-7d7522b436f0"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Banco]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="6230" y="0" width="200" height="30" backcolor="#1EC1AF" uuid="9b4aa0de-4c20-4c66-9639-73921a906767"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Número de cuenta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="6430" y="0" width="230" height="30" backcolor="#1EC1AF" uuid="41fb4b73-9735-4f2c-b9a8-4dcf9d9cec02"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[CLABE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="6660" y="0" width="180" height="30" backcolor="#1EC1AF" uuid="df8c5e2b-768a-4cef-b8e4-b9c07eddc826"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Número de cliente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="6840" y="0" width="310" height="30" backcolor="#1EC1AF" uuid="b481e54d-5590-4604-a80c-c8b7a81ac878"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Nombre de contacto de emergencia]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="7150" y="0" width="90" height="30" backcolor="#1EC1AF" uuid="12eca4ed-ebdc-4ada-ab5a-dcb0a49b3892"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Parentesco]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="7240" y="0" width="216" height="30" backcolor="#1EC1AF" uuid="650d3bca-3cdd-4910-a38d-c03a29abb0d8"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Correo]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch"/>
+	</detail>
+</jasperReport>

@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.17.0.final using JasperReports Library version 6.17.0-6d93193241dd8cc42629e188b94f9e0bc5722efd  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="PerfilEmpleado" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="740b6cef-8de8-4563-879e-2d63878094fa">
+	<style name="estiloFilaColorAlternativo" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 1]]></conditionExpression>
+			<style backcolor="#7C7C7C"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="pEmpresa" class="java.lang.String"/>
+	<parameter name="pPeriodo" class="java.lang.String"/>
+	<parameter name="pFechaFormato" class="java.lang.String"/>
+	<parameter name="pTitulo" class="java.lang.String"/>
+	<parameter name="pNombre" class="java.lang.String"/>
+	<parameter name="pArea" class="java.lang.String"/>
+	<parameter name="pImagen" class="java.io.InputStream"/>
+	<parameter name="pLogo" class="java.io.InputStream"/>
+	<parameter name="pDatosInformacion" class="java.util.Collection"/>
+	<parameter name="pDatosContacto" class="java.util.Collection"/>
+	<parameter name="pPreferencias" class="java.util.Collection"/>
+	<parameter name="pDetalleEmpleo" class="java.util.Collection"/>
+	<parameter name="pDetallePago" class="java.util.Collection"/>
+	<parameter name="pDetalleCompensacion" class="java.util.Collection"/>
+	<parameter name="pTituloInformacion" class="java.lang.String"/>
+	<parameter name="pTituloContacto" class="java.lang.String"/>
+	<parameter name="pTituloPreferencias" class="java.lang.String"/>
+	<parameter name="pTituloDetalleEmpleo" class="java.lang.String"/>
+	<parameter name="pTituloDetallePago" class="java.lang.String"/>
+	<parameter name="pTituloDetalleCompensacion" class="java.lang.String"/>
+	<parameter name="pDomicilio" class="java.util.Collection"/>
+	<parameter name="pInformacionAdicional" class="java.util.Collection"/>
+	<parameter name="pInformacionContrato" class="java.util.Collection"/>
+	<parameter name="pTituloDomicilio" class="java.lang.String"/>
+	<parameter name="pTituloInformacionAdicional" class="java.lang.String"/>
+	<parameter name="pTituLoInformacionContrato" class="java.lang.String"/>
+	<parameter name="pLogoCosmonaut" class="java.io.InputStream"/>
+	<parameter name="pPuesto" class="java.lang.String"/>
+	<parameter name="pTelefono" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="56" splitType="Stretch">
+			<image hAlign="Center" vAlign="Top" onErrorType="Blank" hyperlinkType="" hyperlinkTarget="">
+				<reportElement x="1" y="0" width="79" height="56" uuid="39f785a0-ed11-4e1f-88fb-601b6cee38d1"/>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0"/>
+				<imageExpression><![CDATA[$P{pLogo}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="80" y="10" width="400" height="40" forecolor="#000000" uuid="e6267837-0ab2-4009-a7e2-28f512b8a567"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pTitulo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="64" splitType="Stretch">
+			<rectangle radius="5">
+				<reportElement x="0" y="3" width="555" height="61" forecolor="#FFFFFF" backcolor="#012637" uuid="05ce5d85-85fc-4216-b844-c1eece16ed5e"/>
+			</rectangle>
+			<textField>
+				<reportElement x="80" y="4" width="400" height="15" isRemoveLineWhenBlank="true" forecolor="#FFFFFF" uuid="04469355-d3aa-4d00-a9e4-5d969e708ee8">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pNombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="19" width="400" height="15" isRemoveLineWhenBlank="true" forecolor="#FFFFFF" uuid="1d51a7b4-cd7b-4671-a237-7344fb5b56cc">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pArea}]]></textFieldExpression>
+			</textField>
+			<image hAlign="Center" vAlign="Middle" hyperlinkTarget="">
+				<reportElement x="10" y="9" width="50" height="50" uuid="702eadab-dfd7-4948-8ee5-ea1ff43c7a87"/>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0"/>
+				<imageExpression><![CDATA[$P{pImagen}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="80" y="34" width="400" height="15" isRemoveLineWhenBlank="true" forecolor="#FFFFFF" uuid="c8f527ec-6c64-4f43-b1fa-cc079991d6a6">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$P{pPuesto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="49" width="400" height="15" isRemoveLineWhenBlank="true" forecolor="#FFFFFF" uuid="446c141f-2418-4382-ba29-42138c9a532c">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$P{pTelefono}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<pageFooter>
+		<band height="38">
+			<textField evaluationTime="Report">
+				<reportElement x="542" y="0" width="12" height="20" forecolor="#7C7C7C" uuid="e09d62d8-4ab1-4e25-afd9-a25a1a478673"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="420" y="0" width="122" height="20" forecolor="#7C7C7C" uuid="4c2e7a12-7988-46a0-85e9-7ec3427e80c5"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Página" + $V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1" y="0" width="100" height="20" forecolor="#7C7C7C" uuid="e52ed384-281d-4981-ab3c-1191091bcbd3">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pEmpresa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="101" y="21" width="319" height="15" forecolor="#7C7C7C" uuid="67f89fc9-2770-4940-9bb5-2745bdad0adb"/>
+				<textElement textAlignment="Center">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Este documento no se considera oficial, únicamente es de carácter informativo."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="150" y="3" width="245" height="15" forecolor="#7C7C7C" uuid="00f4168f-3e93-44cc-93cc-12620541c56f"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="7" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pFechaFormato}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="137" splitType="Stretch">
+			<subreport>
+				<reportElement positionType="Float" x="0" y="7" width="270" height="25" uuid="b44cf54f-5fa1-4c08-a1c1-18ad7712a475">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<subreportParameter name="pTitulo">
+					<subreportParameterExpression><![CDATA[$P{pTituloInformacion}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{pDatosInformacion})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[this.getClass().getResourceAsStream("/reportes/TablaBasica.jasper");]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement positionType="Float" x="280" y="42" width="274" height="25" uuid="bf614fb2-aba4-4036-99a1-0f9882076bfc">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<subreportParameter name="pTitulo">
+					<subreportParameterExpression><![CDATA[$P{pTituloContacto}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{pDatosContacto})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[this.getClass().getResourceAsStream("/reportes/TablaBasica.jasper");]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement positionType="Float" x="0" y="77" width="270" height="25" uuid="d0e008e5-1959-4b0b-ad4e-9faa3762010d">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<subreportParameter name="pTitulo">
+					<subreportParameterExpression><![CDATA[$P{pTituloDetalleEmpleo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{pDetalleEmpleo})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[this.getClass().getResourceAsStream("/reportes/TablaBasica.jasper");]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement positionType="Float" x="280" y="111" width="275" height="25" uuid="0655f81b-28d4-463b-bdfe-e1ced1af0e25">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<subreportParameter name="pTitulo">
+					<subreportParameterExpression><![CDATA[$P{pTituloDetallePago}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{pDetallePago})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[this.getClass().getResourceAsStream("/reportes/TablaBasica.jasper");]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement positionType="Float" x="0" y="112" width="270" height="25" uuid="1ec8f7e5-4c79-4ec8-9d4c-8b232e6aad0c">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<subreportParameter name="pTitulo">
+					<subreportParameterExpression><![CDATA[$P{pTituloDetalleCompensacion}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{pDetalleCompensacion})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[this.getClass().getResourceAsStream("/reportes/TablaBasica.jasper");]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement positionType="Float" x="0" y="42" width="270" height="25" uuid="fa60357e-27a1-4fad-91c5-c4bb336656bf">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<subreportParameter name="pTitulo">
+					<subreportParameterExpression><![CDATA[$P{pTituloDomicilio}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{pDomicilio})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[this.getClass().getResourceAsStream("/reportes/TablaBasica.jasper");]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="280" y="7" width="274" height="25" uuid="a02c0b4f-0f9f-4a16-9acd-a3cc6e4bd05e">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<subreportParameter name="pTitulo">
+					<subreportParameterExpression><![CDATA[$P{pTituloInformacionAdicional}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{pInformacionAdicional})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[this.getClass().getResourceAsStream("/reportes/TablaBasica.jasper");]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement positionType="Float" x="280" y="76" width="275" height="25" uuid="bf6276d9-6086-4806-a461-11cfad11d294">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<subreportParameter name="pTitulo">
+					<subreportParameterExpression><![CDATA[$P{pTituLoInformacionContrato}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{pInformacionContrato})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[this.getClass().getResourceAsStream("/reportes/TablaBasica.jasper");]]></subreportExpression>
+			</subreport>
+		</band>
+	</summary>
+</jasperReport>

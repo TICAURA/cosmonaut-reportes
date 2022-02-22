@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.18.1.final using JasperReports Library version 6.18.1-9d75d1969e774d4f179fb3be8401e98a0e6d1611  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RayaNominaHistorica" pageWidth="799" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3f3df7c6-e3b6-4851-b259-613a0ed6083b">
+	<parameter name="pFechaHora" class="java.lang.String"/>
+	<parameter name="pFechaListaRayaAl" class="java.lang.String"/>
+	<parameter name="pFechaListaRayaDel" class="java.lang.String"/>
+	<parameter name="pFechaDia" class="java.lang.String"/>
+	<parameter name="pDomicilio" class="java.lang.String"/>
+	<parameter name="pRegistroPatronal" class="java.lang.String"/>
+	<parameter name="pNombreNomina" class="java.lang.String"/>
+	<parameter name="pRfc" class="java.lang.String"/>
+	<parameter name="pRazonSocial" class="java.lang.String"/>
+	<parameter name="pListaDetalleXempleado" class="java.util.Collection"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band height="103" splitType="Stretch">
+			<textField>
+				<reportElement x="80" y="0" width="200" height="20" isRemoveLineWhenBlank="true" forecolor="#0D2454" uuid="8116bbf9-77f3-463d-af56-aea8400f18d7"/>
+				<textElement verticalAlignment="Middle">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pRazonSocial}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="291" y="41" width="1" height="43" forecolor="#7D7D7D" backcolor="#7D7D7D" uuid="e1ee2f07-b47f-4831-9adc-b8e8f4fba148">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+			</rectangle>
+			<textField pattern="d-MMM-yyyy">
+				<reportElement x="400" y="40" width="130" height="13" isRemoveLineWhenBlank="true" forecolor="#7D7D7D" uuid="52d80802-5b0c-40d9-b877-3c5d6ffcd3a4"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pFechaListaRayaDel}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="300" y="41" width="100" height="13" forecolor="#7D7D7D" uuid="aa271de6-eafe-4bc0-9ea0-7fc85dddc6e6"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[LISTA DE RAYA DEL ]]></text>
+			</staticText>
+			<textField pattern="dd-MMM-yyyy">
+				<reportElement x="549" y="40" width="150" height="13" forecolor="#7D7D7D" uuid="ac2ad5b1-c978-44ca-8961-be342b2234a5"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pFechaListaRayaAl}]]></textFieldExpression>
+			</textField>
+			<textField pattern="d-MMM-yyyy">
+				<reportElement x="340" y="54" width="110" height="16" isRemoveLineWhenBlank="true" forecolor="#7D7D7D" uuid="97b77d8b-02c2-4b04-b44d-ea5dc076113c"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pFechaDia}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="340" y="70" width="110" height="13" isRemoveLineWhenBlank="true" forecolor="#7D7D7D" uuid="7e66f9af-7820-479f-805c-74e521955e44"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pFechaHora}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="300" y="54" width="40" height="16" forecolor="#7D7D7D" uuid="268cd7f8-a4d6-4782-88e6-ed04f9e855e3"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[FECHA: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="300" y="70" width="40" height="13" forecolor="#7D7D7D" uuid="73f3f72b-0977-4b9e-93fb-795b654be610"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[HORA:]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement mode="Opaque" x="0" y="93" width="759" height="1" forecolor="#00CC99" backcolor="#00CC99" uuid="4a4a4d2d-2b47-4ffb-b803-53b728db1005">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</rectangle>
+			<textField>
+				<reportElement x="80" y="27" width="400" height="14" uuid="bdc187bb-9cad-4039-b3d6-47ff34d0d06b"/>
+				<textFieldExpression><![CDATA[$P{pDomicilio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="54" width="200" height="16" uuid="ef04709b-725c-49b9-8dc1-020c80eecc22"/>
+				<textFieldExpression><![CDATA["R.F.C: " + $P{pRfc}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="70" width="200" height="13" uuid="1cee5964-4db4-43ae-b902-a4d753db44f4"/>
+				<textFieldExpression><![CDATA["Reg. Pat. IMSS: " + $P{pRegistroPatronal}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="530" y="40" width="20" height="13" forecolor="#7D7D7D" uuid="25d41c7b-b444-45c2-a444-ce215faf083e"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[ AL ]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="94" splitType="Stretch">
+			<subreport>
+				<reportElement positionType="Float" x="0" y="0" width="759" height="89" isRemoveLineWhenBlank="true" uuid="afc7e4c5-e546-4ffe-a0ed-04617c1b16a4">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{pListaDetalleXempleado})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[this.getClass().getResourceAsStream("/reportes/SubReporteRayaNomina.jasper");]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="16" splitType="Stretch">
+			<textField>
+				<reportElement x="664" y="0" width="60" height="13" isRemoveLineWhenBlank="true" uuid="7552b22e-b235-47c4-86a3-d5fe92ce3d58"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Página " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="724" y="0" width="35" height="13" isRemoveLineWhenBlank="true" uuid="61b3fe34-fe2a-490b-9f2d-7253a30f49bf"/>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" de " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

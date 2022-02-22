@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.17.0.final using JasperReports Library version 6.17.0-6d93193241dd8cc42629e188b94f9e0bc5722efd  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ComprobanteFiscal" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e95e0fb6-a56c-4f21-969a-57fe643d04da">
+	<parameter name="pListaComprobanteFiscal" class="java.util.Collection"/>
+	<parameter name="pImagenCFDI" class="java.io.InputStream"/>
+	<parameter name="pTituloCFDI" class="java.lang.String"/>
+	<parameter name="pRFCEmpresa" class="java.lang.String"/>
+	<parameter name="pDomicilioEmpresa" class="java.lang.String"/>
+	<parameter name="pRegimenFiscal" class="java.lang.String"/>
+	<parameter name="pNominaMensual" class="java.lang.String"/>
+	<parameter name="pPeriodo" class="java.lang.String"/>
+	<parameter name="pRangoIncidencia" class="java.lang.String"/>
+	<parameter name="pPrimerApellidoEmpleado" class="java.lang.String"/>
+	<parameter name="pSegundoApellidoEmpleado" class="java.lang.String"/>
+	<parameter name="pIMSSEmpleado" class="java.lang.String"/>
+	<parameter name="pCURPEmpleado" class="java.lang.String"/>
+	<parameter name="pNombreEmpleado" class="java.lang.String"/>
+	<parameter name="pNoEmpleado" class="java.lang.String"/>
+	<parameter name="pRFCEmpleado" class="java.lang.String"/>
+	<parameter name="pPuestoEmpleado" class="java.lang.String"/>
+	<parameter name="pFaltas" class="java.lang.String"/>
+	<parameter name="pSBC" class="java.lang.String"/>
+	<parameter name="pDiasIncapacidad" class="java.lang.String"/>
+	<parameter name="pDiasTrabajados" class="java.lang.String"/>
+	<parameter name="pTipoNominaEmpleado" class="java.lang.String"/>
+	<parameter name="pCiudadNominaEmpleado" class="java.lang.String"/>
+	<parameter name="pPatronNominaEmpleado" class="java.lang.String"/>
+	<parameter name="pSalarioDiario" class="java.lang.String"/>
+	<parameter name="pMetodoPagoNomina" class="java.lang.String"/>
+	<parameter name="pPagoFooter" class="java.lang.String"/>
+	<parameter name="pREFNominaEmpleado" class="java.lang.String"/>
+	<parameter name="pImagenQR" class="java.io.InputStream"/>
+	<parameter name="pCadenaOriginalSAT" class="java.lang.String"/>
+	<parameter name="pSelloSAT" class="java.lang.String"/>
+	<parameter name="pSelloDigitalCFDI" class="java.lang.String"/>
+	<parameter name="pCantidadNumeroLetra" class="java.lang.String"/>
+	<parameter name="pListaPercepciones" class="java.util.Collection"/>
+	<parameter name="pTotalImportePercepcion" class="java.lang.String"/>
+	<parameter name="pTotalPercepcion" class="java.lang.String"/>
+	<parameter name="pTituloImportePercepcion" class="java.lang.String"/>
+	<parameter name="pTituloDescripcionPercepcion" class="java.lang.String"/>
+	<parameter name="pTotalImporteDeduccion" class="java.lang.String"/>
+	<parameter name="pTotalDeduccion" class="java.lang.String"/>
+	<parameter name="pTituloImporteDeduccion" class="java.lang.String"/>
+	<parameter name="pTituloDescripcionDeduccion" class="java.lang.String"/>
+	<parameter name="pListaDeducciones" class="java.util.Collection"/>
+	<parameter name="pNetoAPagar" class="java.lang.String"/>
+	<parameter name="pFechaPago" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="123" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="101" width="230" height="10" forecolor="#7C7C7C" uuid="09c66788-5fe5-4671-b6dc-00167a09527b"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pDomicilioEmpresa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="91" width="230" height="9" forecolor="#030303" uuid="f7adb7ab-6ee2-4700-a028-3cc2854b5a1b"/>
+				<textElement textAlignment="Left" verticalAlignment="Bottom">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pRFCEmpresa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="68" width="180" height="20" forecolor="#030303" uuid="b06bb676-bbbc-4a6c-b6db-acaa18bbc0be"/>
+				<textElement textAlignment="Left" verticalAlignment="Bottom">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pTituloCFDI}]]></textFieldExpression>
+			</textField>
+			<image hAlign="Center" vAlign="Bottom" onErrorType="Blank">
+				<reportElement x="0" y="0" width="120" height="68" uuid="9610c064-4640-40fa-99af-80ea4ff5045b"/>
+				<imageExpression><![CDATA[$P{pImagenCFDI}]]></imageExpression>
+			</image>
+			<subreport>
+				<reportElement stretchType="ElementGroupHeight" x="247" y="61" width="307" height="50" uuid="945922ed-b769-4808-8ea7-48c9b73418cf"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{pListaComprobanteFiscal})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[this.getClass().getResourceAsStream("/reportes/TablaAuxiliarSubReporte.jasper");]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement x="140" y="0" width="414" height="61" uuid="734c30a0-c7cb-4135-91c2-3d5d40b4512f"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle" rotation="None">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Comprobante Fiscal Digital por Internet]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="113" width="230" height="10" forecolor="#7C7C7C" uuid="734ddda5-15e3-4b71-ae6d-3ace7fb94a74"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pRegimenFiscal}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="170" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="39" width="555" height="1" backcolor="#919191" uuid="11d9e072-dd0a-43ac-9e40-abbacabed162"/>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="10" y="5" width="220" height="9" forecolor="#030303" uuid="e47f7c21-888d-460a-90aa-46ac3f5b0385"/>
+				<textElement verticalAlignment="Middle">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pNominaMensual}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="10" y="24" width="220" height="10" forecolor="#030303" uuid="da0cf97f-66f3-43d9-83a8-a10053043d17"/>
+				<textElement verticalAlignment="Middle">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pPeriodo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="10" y="14" width="220" height="10" forecolor="#030303" uuid="7686b2c2-5c52-40b7-91de-e3c6f7f5132d"/>
+				<textElement verticalAlignment="Middle">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pRangoIncidencia}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="555" height="1" backcolor="#919191" uuid="f6e58d77-71dd-4b04-9970-abb2087209c7"/>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="9" y="50" width="160" height="10" forecolor="#030303" uuid="750d25c7-352c-48d0-b244-ae8d744f90b1"/>
+				<textElement verticalAlignment="Middle">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pPrimerApellidoEmpleado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="9" y="60" width="160" height="10" forecolor="#030303" uuid="1ab64ee5-8f04-4224-abc2-d5cd308c176c"/>
+				<textElement verticalAlignment="Middle">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pSegundoApellidoEmpleado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="9" y="90" width="160" height="10" forecolor="#030303" uuid="7857210c-067d-4212-917c-b90fcc7906a8"/>
+				<textElement verticalAlignment="Middle">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pNoEmpleado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="9" y="100" width="160" height="10" forecolor="#030303" uuid="86dc386b-dc8f-4216-ba2c-7d7cb390999e"/>
+				<textElement verticalAlignment="Middle">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pRFCEmpleado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="9" y="70" width="160" height="10" forecolor="#030303" uuid="f3042d39-59f1-4253-837b-10575310775d"/>
+				<textElement verticalAlignment="Middle">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pNombreEmpleado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="9" y="110" width="160" height="10" forecolor="#030303" uuid="8532b6af-be6f-4a47-8218-fa5a86bd84af"/>
+				<textElement verticalAlignment="Middle">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pCURPEmpleado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="9" y="120" width="160" height="10" forecolor="#030303" uuid="2df919ca-b6e6-4d1b-9ebe-158236772d77"/>
+				<textElement verticalAlignment="Middle">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pIMSSEmpleado}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="1" y="140" width="555" height="1" backcolor="#919191" uuid="1421bede-8924-4b28-a359-eb801fb48a6d"/>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="197" y="50" width="160" height="10" forecolor="#030303" uuid="fcc36872-64b7-4680-8486-4b43a0197dee"/>
+				<textElement>
+					<font size="6" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pPuestoEmpleado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="197" y="80" width="160" height="10" forecolor="#030303" uuid="1ba4a1dd-bb8c-48b6-b8b6-f37067de6b00"/>
+				<textElement>
+					<font size="6" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pFaltas}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="197" y="70" width="160" height="10" forecolor="#030303" uuid="ad4f48be-5b92-46b7-b20f-a0fad81c75ca"/>
+				<textElement>
+					<font size="6" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pDiasTrabajados}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="197" y="100" width="160" height="10" forecolor="#030303" uuid="eb5471f4-4a66-44b4-a5b4-46e1a2c94969"/>
+				<textElement>
+					<font size="6" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pSBC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="197" y="90" width="160" height="10" forecolor="#030303" uuid="5d1727f7-4f37-4821-abea-5b085815d925"/>
+				<textElement>
+					<font size="6" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pDiasIncapacidad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="389" y="100" width="164" height="10" forecolor="#030303" uuid="d90e979f-90cc-4850-8651-dbf1274554e1"/>
+				<textElement verticalAlignment="Middle">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pTipoNominaEmpleado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="389" y="90" width="164" height="10" forecolor="#030303" uuid="569e315f-7bde-4913-9ca6-b2e6f2977650"/>
+				<textElement verticalAlignment="Middle">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pCiudadNominaEmpleado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="389" y="80" width="164" height="10" forecolor="#030303" uuid="07ae8081-878c-420e-9129-14ae9cda3a49"/>
+				<textElement verticalAlignment="Middle">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pPatronNominaEmpleado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="389" y="70" width="164" height="10" forecolor="#030303" uuid="74c3a916-c65f-4585-bc9e-ed4c3f98ceac"/>
+				<textElement verticalAlignment="Middle">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pREFNominaEmpleado}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="389" y="50" width="164" height="10" isRemoveLineWhenBlank="true" forecolor="#030303" uuid="13225d45-8cf4-4f31-88c9-0aa11716f96f"/>
+				<textElement verticalAlignment="Middle">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NÓMINA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="179" y="40" width="1" height="100" backcolor="#919191" uuid="006203a1-581d-4fd0-a96e-459b72762aca"/>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="380" y="39" width="1" height="101" backcolor="#919191" uuid="d967eb90-39bc-44f5-a322-b097fdbe6dc6"/>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="10" y="150" width="237" height="10" forecolor="#030303" uuid="5869ef0e-a285-4630-8341-90da31e28c92"/>
+				<textElement verticalAlignment="Middle">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pMetodoPagoNomina}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="197" y="110" width="160" height="10" forecolor="#030303" uuid="add65db0-b1a7-4691-983d-011abd521d7b"/>
+				<textElement>
+					<font size="6" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pSalarioDiario}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="10" y="160" width="237" height="10" forecolor="#030303" uuid="7ff2ccfc-f975-4779-a3b3-c492bba24300"/>
+				<textElement verticalAlignment="Middle">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pFechaPago}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="36" splitType="Stretch">
+			<subreport>
+				<reportElement x="2" y="1" width="278" height="29" uuid="e265363d-89fc-4688-b37c-87f15c054f03"/>
+				<subreportParameter name="pDescripcion">
+					<subreportParameterExpression><![CDATA[$P{pTituloDescripcionPercepcion}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pValor">
+					<subreportParameterExpression><![CDATA[$P{pTituloImportePercepcion}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pTotal">
+					<subreportParameterExpression><![CDATA[$P{pTotalPercepcion}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pImporte">
+					<subreportParameterExpression><![CDATA[$P{pTotalImportePercepcion}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{pListaPercepciones})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[this.getClass().getResourceAsStream("/reportes/TablaAuxiliarSubReporteEstilo.jasper");]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="280" y="1" width="273" height="29" uuid="1c0968cf-c295-49de-9ed5-28f55466778e"/>
+				<subreportParameter name="pDescripcion">
+					<subreportParameterExpression><![CDATA[$P{pTituloDescripcionDeduccion}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pValor">
+					<subreportParameterExpression><![CDATA[$P{pTituloImporteDeduccion}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pTotal">
+					<subreportParameterExpression><![CDATA[$P{pTotalDeduccion}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pImporte">
+					<subreportParameterExpression><![CDATA[$P{pTotalImporteDeduccion}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{pListaDeducciones})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[this.getClass().getResourceAsStream("/reportes/TablaAuxiliarSubReporteEstilo.jasper");]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="161" splitType="Stretch">
+			<image>
+				<reportElement x="1" y="67" width="99" height="94" uuid="5d7f7f3b-f8a4-41c7-ad79-f2d90c9808a1"/>
+				<imageExpression><![CDATA[$P{pImagenQR}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="103" y="67" width="452" height="20" forecolor="#7C7C7C" uuid="611e4b72-4b04-43f2-a7df-2ca010b1b86e"/>
+				<textElement verticalAlignment="Middle">
+					<font size="4"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pSelloDigitalCFDI}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="103" y="107" width="452" height="54" forecolor="#7C7C7C" uuid="d54fb2b7-595a-4e13-baad-d77a76b75b2a"/>
+				<textElement verticalAlignment="Middle">
+					<font size="4"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pCadenaOriginalSAT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="103" y="87" width="452" height="20" forecolor="#7C7C7C" uuid="8052a5b6-4dd5-4c09-b455-a6223e811d26"/>
+				<textElement verticalAlignment="Middle">
+					<font size="4"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pSelloSAT}]]></textFieldExpression>
+			</textField>
+			<rectangle radius="5">
+				<reportElement x="103" y="49" width="451" height="19" uuid="a0efca28-01f9-498c-87bc-1f5fe23a2fab"/>
+				<graphicElement>
+					<pen lineWidth="2.0" lineColor="#030303"/>
+				</graphicElement>
+			</rectangle>
+			<textField>
+				<reportElement x="103" y="49" width="450" height="18" forecolor="#030303" uuid="b3cf9304-5d4c-436d-bc84-8f86f997049e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pCantidadNumeroLetra}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="455" y="1" width="100" height="14" forecolor="#030303" uuid="448119bd-cb46-421c-bb94-ce0df57b0ccc">
+					<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="2.0" lineStyle="Solid" lineColor="#00CC99"/>
+					<topPen lineWidth="2.0" lineStyle="Solid" lineColor="#030303"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="2.0" lineStyle="Solid" lineColor="#030303"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="6" isBold="true"/>
+					<paragraph rightIndent="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pNetoAPagar}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="280" y="1" width="175" height="14" forecolor="#030303" uuid="6789c61d-459b-4109-a580-a3dc3d5ee6cf"/>
+				<box>
+					<pen lineWidth="2.0" lineColor="#00CC99"/>
+					<topPen lineWidth="2.0" lineStyle="Solid" lineColor="#030303"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="2.0" lineStyle="Solid" lineColor="#030303"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NETO A PAGAR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="4" width="131" height="9" forecolor="#030303" uuid="85a8b472-6cb6-42cc-9545-082f984b4eeb">
+					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6" isBold="true"/>
+					<paragraph leftIndent="10"/>
+				</textElement>
+				<text><![CDATA[Firma de Conformidad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="2" width="131" height="1" backcolor="#919191" uuid="391ce359-f6d0-42d6-ad7e-a098d3c39d0a">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="33" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="1" width="555" height="1" backcolor="#919191" uuid="67ee1e24-1724-41e8-894e-03d21f4d78a9"/>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="15" width="310" height="7" forecolor="#7C7C7C" uuid="f771b3fc-b16d-4c89-bf3f-aeccd81ea171"/>
+				<textElement verticalAlignment="Middle">
+					<font size="4"/>
+				</textElement>
+				<text><![CDATA[Este documento es una representación impresa de un comprobante fiscal digital a traves de internet]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="22" width="310" height="7" forecolor="#7C7C7C" uuid="5bae6e77-1515-4463-be38-434d25a9e754"/>
+				<textElement verticalAlignment="Middle">
+					<font size="4"/>
+				</textElement>
+				<text><![CDATA[Efectos Fiscales al Pago. La reproducción no autorizada de este comprobante constituye un délito en los términos de las disposiciones fiscales]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>

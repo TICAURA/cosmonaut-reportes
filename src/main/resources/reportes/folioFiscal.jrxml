@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.18.1.final using JasperReports Library version 6.18.1-9d75d1969e774d4f179fb3be8401e98a0e6d1611  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="folioFiscal" pageWidth="625" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3eb673f0-2765-4945-b26c-f3734a4e84f0">
+	<parameter name="pNombreNomina" class="java.lang.String"/>
+	<parameter name="pClavePeriodo" class="java.lang.String"/>
+	<parameter name="pFecha" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="rfc" class="java.lang.String"/>
+	<field name="primerApellido" class="java.lang.String"/>
+	<field name="segundoApellido" class="java.lang.String"/>
+	<field name="nombre" class="java.lang.String"/>
+	<field name="folioFiscal" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="59" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="200" height="40" forecolor="#0D2454" uuid="761bff4e-429b-482b-9d0a-0ead5fe0edc1"/>
+				<textElement>
+					<font size="29"/>
+				</textElement>
+				<text><![CDATA[Folios fiscales]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="310" y="0" width="275" height="19" forecolor="#0D2454" uuid="a058cba9-39b5-4bba-9840-cc1ba6eafb7d"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pNombreNomina}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="310" y="19" width="275" height="21" forecolor="#0D2454" uuid="a93ccbb5-602d-4f38-a3a3-3dd3aeaf5f05"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pClavePeriodo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="310" y="40" width="275" height="18" forecolor="#0D2454" uuid="df634ec7-f81f-46f4-b1f4-076d71a10424"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pFecha}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="20">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="100" height="20" isPrintWhenDetailOverflows="true" forecolor="#000000" backcolor="#1EC1AF" uuid="288906ba-ace2-4521-a8cf-48ed65356bfe">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2f8e0734-d77a-491f-a21a-886dfff5e0a9"/>
+				</reportElement>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<pen lineStyle="Solid" lineColor="#000000"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[RFC]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="100" y="0" width="89" height="20" isPrintWhenDetailOverflows="true" forecolor="#000000" backcolor="#1EC1AF" uuid="e7e610ac-b60a-499b-b055-f45af1cf67bb">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2f8e0734-d77a-491f-a21a-886dfff5e0a9"/>
+				</reportElement>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<pen lineStyle="Solid" lineColor="#000000"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Primer apellido]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="189" y="0" width="89" height="20" isPrintWhenDetailOverflows="true" forecolor="#000000" backcolor="#1EC1AF" uuid="46973151-72f7-4da6-ab72-b11d103bbcb4">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2f8e0734-d77a-491f-a21a-886dfff5e0a9"/>
+				</reportElement>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<pen lineStyle="Solid" lineColor="#000000"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Segundo apellido]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="278" y="0" width="72" height="20" isPrintWhenDetailOverflows="true" forecolor="#000000" backcolor="#1EC1AF" uuid="32580b65-9572-4a29-9588-e63728a9d026">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2f8e0734-d77a-491f-a21a-886dfff5e0a9"/>
+				</reportElement>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<pen lineStyle="Solid" lineColor="#000000"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="350" y="0" width="235" height="20" isPrintWhenDetailOverflows="true" forecolor="#000000" backcolor="#1EC1AF" uuid="26659e9f-9741-485f-9711-29d12c234466">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2f8e0734-d77a-491f-a21a-886dfff5e0a9"/>
+				</reportElement>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<pen lineStyle="Solid" lineColor="#000000"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[# Folio fiscal]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="20" uuid="4db77774-fe7c-471f-b59f-f67d4a52df6e">
+					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{rfc}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="0" width="89" height="20" uuid="42f94b58-76bf-4a9f-808f-16ef914f204c">
+					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{primerApellido}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="189" y="0" width="89" height="20" uuid="1e82bf24-bcff-43bf-b8de-00aa2d03da94">
+					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{segundoApellido}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="278" y="0" width="72" height="20" uuid="c21167c3-1c33-4367-8165-052ed80fc0b6">
+					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="350" y="0" width="235" height="20" uuid="40b0206a-46ff-4562-9ae0-40a8dedac513"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{folioFiscal}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>
